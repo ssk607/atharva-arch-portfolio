@@ -1,0 +1,298 @@
+/* --- Add this to your style.css --- */
+
+/* Lock the homepage so it doesn't scroll vertically at all */
+.home-body {
+  overflow: hidden; 
+}
+
+/* Floating Header for Homepage */
+.home-overlay-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  z-index: 20; /* Keeps it above the sliding images */
+  pointer-events: none; /* Lets clicks pass through to the slider if needed */
+}
+
+.home-overlay-header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Ensures text is readable over bright images */
+}
+
+/* Full Screen Wrapper Modification */
+.home-slider-wrapper {
+  height: 100vh; /* Fill the entire vertical screen */
+}
+
+.home-slider-track {
+  padding: 0; /* Remove the padding we used on the inner gallery */
+}
+
+/* Individual Slide */
+.home-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100vh;
+
+    position: relative;
+    display: block;
+
+    scroll-snap-align: start;
+
+    text-decoration: none;
+}
+
+/* Image acts as a full-bleed background */
+.home-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes it fill the screen completely without distortion */
+  filter: brightness(0.7); /* Slightly dims the image so text pops */
+  transition: filter 0.5s ease, transform 10s ease;
+}
+
+.home-slide:hover img {
+  filter: brightness(0.9);
+  transform: scale(1.02); /* Very slow, premium zoom effect on hover */
+}
+
+/* Text Overlay Styling */
+.slide-details {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  color: #fff;
+  z-index: 10;
+}
+
+.slide-details h2 {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.slide-details p {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.view-project {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 5px;
+  transition: opacity 0.3s;
+}
+
+.home-slide:hover .view-project {
+  opacity: 0.7;
+}
+
+/* Make arrows more prominent on the homepage */
+.home-slider-wrapper .gallery-arrow {
+  padding: 2rem 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+.home-slider-wrapper .gallery-arrow:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.home-slider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-slider-track {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+}
+
+.home-slider-track::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 120px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111;
+}
+
+.gallery-image {
+    max-width: 92%;
+    max-height: 92%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    transition: opacity .3s ease;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.45);
+
+    color: white;
+    font-size: 28px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+}
+
+.gallery-arrow:hover {
+    background: rgba(0,0,0,.7);
+}
+
+.left-arrow {
+    left: 25px;
+}
+
+.right-arrow {
+    right: 25px;
+}
+
+.gallery-counter {
+    position: absolute;
+
+    bottom: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    background: rgba(0,0,0,.5);
+
+    padding: 8px 18px;
+
+    border-radius: 20px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 50px;
+
+    background: #111;
+    color: white;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    opacity: .7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #111;
+}
+
+.gallery-container {
+    position: relative;
+
+    width: 100%;
+    height: calc(100vh - 90px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-image {
+    display: block;
+
+    max-width: 90%;
+    max-height: 90%;
+
+    object-fit: contain;
+}
+
+.gallery-arrow {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(0,0,0,.45);
+
+    color: white;
+    font-size: 30px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+}
+
+.left-arrow {
+    left: 30px;
+}
+
+.right-arrow {
+    right: 30px;
+}
+
+.gallery-counter {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
