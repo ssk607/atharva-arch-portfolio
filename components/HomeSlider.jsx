@@ -1,67 +1,65 @@
 "use client";
 
-import { useRef, useState } from "react";
-import HomeSlide from "./HomeSlide";
+import { useEffect, useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import HomeSlide from "./HomeSlide";
 
 export default function HomeSlider({ projects }) {
-  const trackRef = useRef(null);
   const [current, setCurrent] = useState(0);
 
-  const goToSlide = (index) => {
-    if (!trackRef.current) return;
-
-    const slide = trackRef.current.children[index];
-    if (!slide) return;
-
-    slide.scrollIntoView({
-      behavior: "smooth",
-      inline: "start",
-      block: "nearest",
-    });
-  };
-
   const nextSlide = () => {
-    const next = (current + 1) % projects.length;
-    setCurrent(next);
-    goToSlide(next);
+    setCurrent((prev) => (prev + 1) % projects.length);
   };
 
   const previousSlide = () => {
-    const prev = (current - 1 + projects.length) % projects.length;
-    setCurrent(prev);
-    goToSlide(prev);
+    setCurrent((prev) =>
+      prev === 0 ? projects.length - 1 : prev - 1
+    );
   };
 
+  // Auto-play every 6 seconds
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="home-slider-wrapper">
+    <section className="hero-slider">
+
+      {projects.map((project, index) => (
+        <HomeSlide
+          key={project.id}
+          project={project}
+          active={index === current}
+        />
+      ))}
 
       <button
-        className="gallery-arrow left-arrow"
+        className="hero-arrow hero-left"
         onClick={previousSlide}
       >
-        <FiChevronLeft size={28} />
+        <FiChevronLeft size={32} />
       </button>
 
-      <div
-        className="home-slider-track"
-        ref={trackRef}
+      <button
+        className="hero-arrow hero-right"
+        onClick={nextSlide}
       >
-        {projects.map((project) => (
-          <HomeSlide
-            key={project.id}
-            project={project}
+        <FiChevronRight size={32} />
+      </button>
+
+      <div className="hero-dots">
+        {projects.map((_, index) => (
+          <button
+            key={index}
+            className={`hero-dot ${
+              current === index ? "active" : ""
+            }`}
+            onClick={() => setCurrent(index)}
           />
         ))}
       </div>
 
-      <button
-        className="gallery-arrow right-arrow"
-        onClick={nextSlide}
-      >
-        <FiChevronRight size={28} />
-      </button>
-
-    </div>
+    </section>
   );
 }

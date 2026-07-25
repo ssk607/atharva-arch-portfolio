@@ -1,33 +1,46 @@
+"use client";
+
+import "./HomeSlider.css";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-export default function HomeSlide({ project }) {
+export default function HomeSlide({ project, active }) {
+  return (
+    <Link
+      href={`/projects/${project.id}`}
+      className={`hero-slide ${active ? "active" : ""}`}
+    >
+      <img
+        src={project.cover}
+        alt={project.title}
+        className="hero-image"
+      />
 
-    return (
+      <div className="hero-overlay" />
 
-        <Link
-            href={`/projects/${project.id}`}
-            className="home-slide"
-        >
+      <div className="hero-content">
 
-            <img
-                src={project.cover}
-                alt={project.title}
-            />
+        <span className="hero-location">
+          {project.location}
+        </span>
 
-            <div className="slide-details">
+        <h1 className="hero-title">
+          {project.title}
+        </h1>
 
-                <h2>{project.title}</h2>
+        <div className="hero-info">
+          <span>{project.year}</span>
+          <span>•</span>
+          <span>{project.status}</span>
+        </div>
 
-                <p>{project.location}</p>
+        <button className="hero-button">
+          View Project
+        </button>
 
-                <span className="view-project">
-                    View Project →
-                </span>
+      </div>
 
-            </div>
-
-        </Link>
-
-    );
-
+    </Link>
+  );
 }

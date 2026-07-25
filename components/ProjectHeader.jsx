@@ -1,31 +1,60 @@
-import Link from "next/link";
-
 export default function ProjectHeader({
-    title,
-    location,
-    year,
-    status
+  title,
+  category,
+  client,
+  location,
+  area,
+  year,
+  status,
+  services,
 }) {
+  return (
+    <section className="project-header">
 
-    return (
+      <div className="project-header-content">
 
-        <header className="project-header">
+        <p className="project-category">
+          {category}
+        </p>
 
-            <Link href="/" className="back-link">
-                ← Back to Projects
-            </Link>
+        <h1>{title}</h1>
 
-            <div>
-                <h1>{title}</h1>
+        <div className="project-grid">
 
-                <p>
-                    {location} | {year} | {status}
-                </p>
+          <div>
+            <h4>Client</h4>
+            <p>{client}</p>
+          </div>
 
-            </div>
+          <div>
+            <h4>Location</h4>
+            <p>{location}</p>
+          </div>
 
-        </header>
+          <div>
+            <h4>Area</h4>
+            <p>{area}</p>
+          </div>
 
-    );
+          <div>
+            <h4>Year</h4>
+            <p>{year}</p>
+          </div>
 
+          <div>
+            <h4>Status</h4>
+            <p>{status}</p>
+          </div>
+
+          <div>
+            <h4>Services</h4>
+            <p>{services.join(", ")}</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  );
 }

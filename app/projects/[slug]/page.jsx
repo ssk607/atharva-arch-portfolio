@@ -18,14 +18,32 @@ export default async function ProjectPage({ params }) {
 
   return (
     <>
+
       <ProjectHeader
         title={project.title}
+        category={project.category}
+        client={project.client}
         location={project.location}
+        area={project.area}
         year={project.year}
         status={project.status}
+        services={project.services}
       />
 
-      <Gallery images={project.images} />
+      <section className="project-description">
+
+        <div className="container">
+
+          <p>{project.description}</p>
+
+        </div>
+
+      </section>
+
+      <Gallery
+        images={project.images}
+      />
+
     </>
   );
 }
