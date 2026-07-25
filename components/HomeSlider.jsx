@@ -1,34 +1,52 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import HomeSlide from "./HomeSlide";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function HomeSlider({ projects }) {
   const trackRef = useRef(null);
+  const [current, setCurrent] = useState(0);
 
-  const scrollSlides = (direction) => {
+  const goToSlide = (index) => {
     if (!trackRef.current) return;
 
-    const slide = trackRef.current.firstElementChild;
+    const slide = trackRef.current.children[index];
     if (!slide) return;
 
-    trackRef.current.scrollBy({
-      left: direction * slide.offsetWidth,
+    slide.scrollIntoView({
       behavior: "smooth",
+      inline: "start",
+      block: "nearest",
     });
+  };
+
+  const nextSlide = () => {
+    const next = (current + 1) % projects.length;
+    setCurrent(next);
+    goToSlide(next);
+  };
+
+  const previousSlide = () => {
+    const prev = (current - 1 + projects.length) % projects.length;
+    setCurrent(prev);
+    goToSlide(prev);
   };
 
   return (
     <div className="home-slider-wrapper">
+
       <button
         className="gallery-arrow left-arrow"
-        onClick={() => scrollSlides(-1)}
+        onClick={previousSlide}
       >
         <FiChevronLeft size={28} />
       </button>
 
-      <div className="home-slider-track" ref={trackRef}>
+      <div
+        className="home-slider-track"
+        ref={trackRef}
+      >
         {projects.map((project) => (
           <HomeSlide
             key={project.id}
@@ -39,10 +57,11 @@ export default function HomeSlider({ projects }) {
 
       <button
         className="gallery-arrow right-arrow"
-        onClick={() => scrollSlides(1)}
+        onClick={nextSlide}
       >
         <FiChevronRight size={28} />
       </button>
+
     </div>
   );
 }

@@ -25,30 +25,30 @@ export default function Gallery({ images = [] }) {
   return (
     <section className="gallery-container">
 
-      <button
-        className="gallery-arrow left-arrow"
-        onClick={() => scrollSlides(-1)}
-      >
-        <FiChevronLeft size={28} />
-      </button>
-      
-      <img
-        src={images[current]}
-        alt={`Project ${current + 1}`}
-        className="gallery-image"
-      />
+    <button
+      className="gallery-arrow left-arrow"
+      onClick={previousImage}
+    >
+      <FiChevronLeft size={28} />
+    </button>
 
-      <button
-        className="gallery-arrow right-arrow"
-        onClick={() => scrollSlides(1)}
-      >
-        <FiChevronRight size={28} />
-      </button>
+    <img
+      src={images[current]}
+      alt={`Project ${current + 1}`}
+      className="gallery-image"
+    />
 
-      <div className="gallery-counter">
-        {current + 1} / {images.length}
-      </div>
+    <button
+      className="gallery-arrow right-arrow"
+      onClick={nextImage}
+    >
+      <FiChevronRight size={28} />
+    </button>
 
-    </section>
+    <div className="gallery-counter">
+      {current + 1} / {images.length}
+    </div>
+
+  </section>
   );
 }

@@ -32,6 +32,18 @@
   padding: 0; /* Remove the padding we used on the inner gallery */
 }
 
+.home-slider-track {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.home-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+}
+
 /* Individual Slide */
 .home-slide {
     flex: 0 0 100%;
