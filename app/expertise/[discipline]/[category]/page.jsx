@@ -30,6 +30,28 @@ export default async function CategoryPage({ params }) {
 
     return (
         <>
+
+            <div className="category-breadcrumb">
+
+                <Link href="/">Home</Link>
+
+                <span>/</span>
+
+                <span>
+                    {discipline
+                        .replace(/-/g, " ")
+                        .replace(/\b\w/g, c => c.toUpperCase())}
+                </span>
+
+                <span>/</span>
+
+                <span>
+                    {category
+                        .replace(/-/g, " ")
+                        .replace(/\b\w/g, c => c.toUpperCase())}
+                </span>
+
+            </div>
             <section className="category-hero">
                 <h1>{formatTitle(category)}</h1>
 

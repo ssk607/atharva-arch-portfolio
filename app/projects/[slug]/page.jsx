@@ -4,7 +4,7 @@ import projects from "@/app/data/project";
 
 import ProjectHeader from "@/components/ProjectHeader";
 
-import Gallery from "@/components/Gallery";
+import MasonryGallery from "@/components/MasonryGallery";
 
 export default async function ProjectPage({ params }) {
 
@@ -24,28 +24,11 @@ export default async function ProjectPage({ params }) {
   return (
     <>
 
-      <ProjectHeader
-        title={project.title}
-        category={project.category}
-        client={project.client}
-        location={project.location}
-        area={project.area}
-        year={project.year}
-        status={project.status}
-        services={project.services}
-      />
+      <ProjectHeader project={project} />
 
-      <section className="project-description">
+      <MasonryGallery images={project.images} />
 
-        <div className="container">
-
-          <p>{project.description}</p>
-
-        </div>
-
-      </section>
-
-      <Gallery images={project.images} />
+      <ProjectNavigation currentProject={project} />
 
     </>
   );
