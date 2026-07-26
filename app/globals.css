@@ -1496,3 +1496,147 @@ CATEGORY PAGE
     line-height: 1;
 
 }
+
+/* ======================================================
+   404 PAGE
+====================================================== */
+
+.not-found-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 160px 30px 120px;
+
+    background: #F7F5F2;
+
+}
+
+.not-found-content {
+
+    max-width: 850px;
+
+    text-align: center;
+
+}
+
+.not-found-label {
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #A68B63;
+
+    margin-bottom: 25px;
+
+}
+
+.not-found-content h1 {
+
+    font-size: clamp(54px, 7vw, 96px);
+
+    font-weight: 300;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 35px;
+
+    color: #111;
+
+}
+
+.not-found-description {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    font-size: 22px;
+
+    line-height: 1.8;
+
+    color: #666;
+
+}
+
+.not-found-actions {
+
+    margin-top: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+}
+
+.primary-button {
+
+    padding: 18px 42px;
+
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    transition: .35s;
+
+}
+
+.primary-button:hover {
+
+    background: #A68B63;
+
+}
+
+.secondary-button {
+
+    padding: 18px 42px;
+
+    border: 1px solid #111;
+
+    color: #111;
+
+    text-decoration: none;
+
+    transition: .35s;
+
+}
+
+.secondary-button:hover {
+
+    background: #111;
+
+    color: white;
+
+}
+
+@media(max-width:768px) {
+
+    .not-found-content h1 {
+
+        font-size: 48px;
+
+    }
+
+    .not-found-description {
+
+        font-size: 18px;
+
+    }
+
+}
