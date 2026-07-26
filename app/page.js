@@ -1,19 +1,24 @@
 import HomeHeader from "@/components/Header/HomeHeader";
 import HomeSlider from "@/components/Home/HomeSlider";
+import FooterCTA from "@/components/Footer/FooterCTA";
+import Footer from "@/components/Footer/Footer";
+
 import projects from "./data/project";
 
 export default function Home() {
   return (
-    <main className="home-page">
+    <>
+      <main className="home-page">
 
-      <header className="home-overlay-header">
-        <h1>ATHARVA ARCHITECTS</h1>
-      </header>
+        <HomeHeader />
 
-      <HomeHeader />
+        <HomeSlider projects={projects} />
 
-      <HomeSlider projects={projects} />
+      </main>
 
-    </main>
+      <FooterCTA />
+
+      <Footer />
+    </>
   );
 }

@@ -33,23 +33,29 @@ export default async function CategoryPage({ params }) {
 
                     <nav className="breadcrumb">
                         <Link href="/">Home</Link>
+
                         <span>/</span>
 
-                        <span>{disciplineTitle}</span>
+                        <Link href={`/expertise/${discipline}`}>
+                            {disciplineTitle}
+                        </Link>
 
                         <span>/</span>
 
                         <span>{pageTitle}</span>
                     </nav>
 
-                    <p className="category-label">
-                        {disciplineTitle}
-                    </p>
+                    <div className="category-title">
 
-                    <h1>{pageTitle}</h1>
+                        <p className="category-label">
+                            {disciplineTitle.toUpperCase()}
+                        </p>
+
+                        <h1>{pageTitle}</h1>
+
+                    </div>
 
                 </div>
-
                 <div className="projects-grid">
 
                     {filteredProjects.map((project) => (

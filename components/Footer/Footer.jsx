@@ -26,41 +26,13 @@ export default function Footer() {
 
                 <div>
 
-                    <h4>Navigation</h4>
-
-                    <Link href="/">Home</Link>
-
-                    <Link href="/identity">Identity</Link>
-
-                    <Link href="/strength">Strength</Link>
-
-                    <Link href="/connect">Connect</Link>
-
-                </div>
-
-                <div>
-
-                    <h4>Services</h4>
-
-                    <p>Architectural Design</p>
-
-                    <p>Interior Design</p>
-
-                    <p>Residential</p>
-
-                    <p>Commercial</p>
-
-                </div>
-
-                <div>
-
                     <h4>Contact</h4>
 
                     <p>Pune, Maharashtra</p>
 
-                    <p>+91 XXXXX XXXXX</p>
+                    <p>+91 8446015936</p>
 
-                    <p>hello@atharva.in</p>
+                    <p>atharva@studioaka.in</p>
 
                     <div className="social-icons">
 

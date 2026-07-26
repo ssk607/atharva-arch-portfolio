@@ -194,8 +194,7 @@ body {
 }
 
 .home-page {
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
 }
 
 
@@ -1239,6 +1238,81 @@ CATEGORY PAGE
 
 }
 
+/* ===========================
+   FOOTER
+=========================== */
+
+.site-footer {
+    background: #111;
+    color: #fff;
+    padding: 80px 8% 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-grid h3 {
+    font-size: 28px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.footer-grid h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #A68B63;
+}
+
+.footer-grid p {
+    color: #cfcfcf;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.footer-grid a {
+    display: block;
+    color: #cfcfcf;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: .3s;
+}
+
+.footer-grid a:hover {
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 18px;
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.social-icons svg {
+    cursor: pointer;
+    transition: .3s;
+}
+
+.social-icons svg:hover {
+    color: #A68B63;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+}
+
 .category-breadcrumb {
 
     width: min(1400px, 90%);
@@ -1378,5 +1452,47 @@ CATEGORY PAGE
 .breadcrumb span:last-child {
 
     color: #111;
+
+}
+
+.category-header {
+
+    width: min(1400px, 90%);
+
+    margin: 160px auto 80px;
+
+}
+
+.category-title {
+
+    text-align: center;
+
+    margin-top: 45px;
+
+}
+
+.category-label {
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: #A68B63;
+
+    margin-bottom: 20px;
+
+}
+
+.category-title h1 {
+
+    font-size: 72px;
+
+    font-weight: 300;
+
+    letter-spacing: -2px;
+
+    line-height: 1;
 
 }
