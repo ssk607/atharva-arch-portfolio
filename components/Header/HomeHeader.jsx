@@ -11,7 +11,10 @@ export default function HomeHeader({
   const closeTimer = useRef(null);
 
   const [scrolled, setScrolled] = useState(false);
+
   const [openMenu, setOpenMenu] = useState(false);
+
+  const [openConnectMenu, setOpenConnectMenu] = useState(false);
 
   // Build the menu automatically from project.js
   const menu = useMemo(() => {
@@ -53,7 +56,9 @@ export default function HomeHeader({
 
   const openMegaMenu = () => {
     clearTimeout(closeTimer.current);
-    setOpenMenu(true);
+
+    setOpenConnectMenu(false);   // Close Connect
+    setOpenMenu(true);           // Open Expertise
   };
 
   const closeMegaMenu = () => {
@@ -73,8 +78,8 @@ export default function HomeHeader({
   return (
     <header
       className={`home-header ${scrolled || internal
-          ? "header-scrolled"
-          : ""
+        ? "header-scrolled"
+        : ""
         }`}
     >
       <Link href="/" className="logo">
@@ -131,7 +136,37 @@ export default function HomeHeader({
 
         <Link href="/strength">Strength</Link>
 
-        <Link href="/connect">Connect</Link>
+        <div
+          className="expertise-wrapper"
+          onMouseEnter={() => {
+            clearTimeout(closeTimer.current);
+
+            setOpenMenu(false);          // Close Expertise
+            setOpenConnectMenu(true);    // Open Connect
+          }}
+          onMouseLeave={() => {
+            closeTimer.current = setTimeout(() => {
+              setOpenConnectMenu(false);
+            }, 250);
+          }}
+        >
+          <span className="expertise-link">
+            Connect
+            <FiChevronDown />
+          </span>
+
+          {openConnectMenu && (
+            <div className="connect-menu">
+              <Link href="/contact">
+                Contact Us
+              </Link>
+
+              <Link href="/careers">
+                Careers
+              </Link>
+            </div>
+          )}
+        </div>
       </nav>
 
       <button className="search-button">

@@ -51,7 +51,7 @@ export default async function CategoryPage({ params }) {
                             {disciplineTitle.toUpperCase()}
                         </p>
 
-                        <h1>{pageTitle}</h1>
+                        <h1>{pageTitle.toUpperCase()}</h1>
 
                     </div>
 
