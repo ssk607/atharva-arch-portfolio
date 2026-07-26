@@ -1,12 +1,15 @@
+import disciplines from "./disciplines";
+import categories from "./categories";
+
 const projects = [
   {
     id: "moreshwar",
 
     title: "Moreshwar Buildcon",
 
-    discipline: "architectural-design",
+    discipline: disciplines.architecture,
 
-    category: "residential",
+    category: categories.residential,
 
     client: "Moreshwar Buildcon",
 
@@ -20,7 +23,7 @@ const projects = [
 
     services: [
       "Architectural Design",
-      "Interior Design"
+      "Interior Design",
     ],
 
     description:
@@ -31,8 +34,8 @@ const projects = [
     images: [
       "/images/MORESHWAR_BUILDCON.jpg",
       "/images/MORESHWAR_02.jpg",
-      "/images/MORESHWAR_03.jpg"
-    ]
+      "/images/MORESHWAR_03.jpg",
+    ],
   },
 
   {
@@ -40,9 +43,9 @@ const projects = [
 
     title: "Gazebos",
 
-    discipline: "architectural-design",
+    discipline: disciplines.architecture,
 
-    category: "residential",
+    category: categories.residential,
 
     client: "Private Client",
 
@@ -55,7 +58,7 @@ const projects = [
     status: "Built",
 
     services: [
-      "Architectural Design"
+      "Architectural Design",
     ],
 
     description:
@@ -64,8 +67,8 @@ const projects = [
     cover: "/images/GAZEBO_Aundh.png",
 
     images: [
-      "/images/GAZEBO_Aundh.png"
-    ]
+      "/images/GAZEBO_Aundh.png",
+    ],
   },
 
   {
@@ -73,9 +76,9 @@ const projects = [
 
     title: "Om Construction",
 
-    discipline: "architectural-design",
+    discipline: disciplines.architecture,
 
-    category: "residential",
+    category: categories.residential,
 
     client: "Om Construction",
 
@@ -89,7 +92,7 @@ const projects = [
 
     services: [
       "Architectural Design",
-      "Interior Design"
+      "Interior Design",
     ],
 
     description:
@@ -99,9 +102,9 @@ const projects = [
 
     images: [
       "/images/OM_CONST_SAHAKARNAGAR.jpeg",
-      "/images/SAHAKARNAGAR.jpeg"
-    ]
-  }
+      "/images/SAHAKARNAGAR.jpeg",
+    ],
+  },
 ];
 
 export default projects;

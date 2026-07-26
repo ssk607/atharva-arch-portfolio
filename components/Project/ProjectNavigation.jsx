@@ -2,11 +2,10 @@ import Link from "next/link";
 import projects from "@/app/data/project";
 
 export default function ProjectNavigation({ currentProject }) {
-
     const filteredProjects = projects.filter(
         (project) =>
-            project.discipline === currentProject.discipline &&
-            project.category === currentProject.category
+            project.discipline.slug === currentProject.discipline.slug &&
+            project.category.slug === currentProject.category.slug
     );
 
     const currentIndex = filteredProjects.findIndex(
@@ -24,9 +23,7 @@ export default function ProjectNavigation({ currentProject }) {
             : null;
 
     return (
-
         <section className="project-navigation">
-
             {previous ? (
                 <Link
                     href={`/projects/${previous.id}`}
@@ -35,6 +32,8 @@ export default function ProjectNavigation({ currentProject }) {
                     <span>← Previous Project</span>
 
                     <h3>{previous.title}</h3>
+
+                    <p>{previous.category.title}</p>
                 </Link>
             ) : (
                 <div />
@@ -48,13 +47,12 @@ export default function ProjectNavigation({ currentProject }) {
                     <span>Next Project →</span>
 
                     <h3>{next.title}</h3>
+
+                    <p>{next.category.title}</p>
                 </Link>
             ) : (
                 <div />
             )}
-
         </section>
-
     );
-
 }

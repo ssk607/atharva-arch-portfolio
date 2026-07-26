@@ -1,77 +1,89 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+
+import HomeHeader from "@/components/Header/HomeHeader";
+import Footer from "@/components/Footer/Footer";
+import FooterCTA from "@/components/Footer/FooterCTA";
+
 import projects from "@/app/data/project";
 
 export default async function CategoryPage({ params }) {
-
     const { discipline, category } = await params;
 
     const filteredProjects = projects.filter(
         (project) =>
-            project.discipline === discipline &&
-            project.category === category
+            project.discipline.slug === discipline &&
+            project.category.slug === category
     );
 
-    if (!filteredProjects.length) {
+    if (filteredProjects.length === 0) {
         notFound();
     }
 
-    const formatTitle = (text) =>
-        text
-            .split("-")
-            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(" ");
+    const pageTitle = filteredProjects[0].category.title;
+    const disciplineTitle = filteredProjects[0].discipline.title;
 
     return (
         <>
+            <HomeHeader />
 
-            <div className="category-breadcrumb">
+            <section className="category-page">
 
-                <Link href="/">Home</Link>
+                <div className="category-header">
 
-                <span>/</span>
+                    <nav className="breadcrumb">
+                        <Link href="/">Home</Link>
+                        <span>/</span>
 
-                <span>
-                    {discipline
-                        .replace(/-/g, " ")
-                        .replace(/\b\w/g, c => c.toUpperCase())}
-                </span>
+                        <span>{disciplineTitle}</span>
 
-                <span>/</span>
+                        <span>/</span>
 
-                <span>
-                    {category
-                        .replace(/-/g, " ")
-                        .replace(/\b\w/g, c => c.toUpperCase())}
-                </span>
+                        <span>{pageTitle}</span>
+                    </nav>
 
-            </div>
-            <section className="category-hero">
-                <h1>{formatTitle(category)}</h1>
+                    <p className="category-label">
+                        {disciplineTitle}
+                    </p>
 
-                <p>{formatTitle(discipline)}</p>
+                    <h1>{pageTitle}</h1>
+
+                </div>
+
+                <div className="projects-grid">
+
+                    {filteredProjects.map((project) => (
+
+                        <Link
+                            key={project.id}
+                            href={`/projects/${project.id}`}
+                            className="project-card"
+                        >
+
+                            <img
+                                src={project.cover}
+                                alt={project.title}
+                            />
+
+                            <div className="project-card-content">
+
+                                <h3>{project.title}</h3>
+
+                                <p>{project.location}</p>
+
+                            </div>
+
+                        </Link>
+
+                    ))}
+
+                </div>
+
             </section>
 
-            <section className="category-grid">
-                {filteredProjects.map((project) => (
-                    <Link
-                        key={project.id}
-                        href={`/projects/${project.id}`}
-                        className="category-card"
-                    >
-                        <img
-                            src={project.cover}
-                            alt={project.title}
-                        />
+            <FooterCTA />
 
-                        <div className="category-content">
-                            <h2>{project.title}</h2>
-
-                            <p>{project.location}</p>
-                        </div>
-                    </Link>
-                ))}
-            </section>
+            <Footer />
         </>
     );
 }

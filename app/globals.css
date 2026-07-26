@@ -1340,3 +1340,43 @@ CATEGORY PAGE
     }
 
 }
+
+.breadcrumb {
+
+    width: min(1300px, 90%);
+
+    margin: 120px auto 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    color: #999;
+
+}
+
+.breadcrumb a {
+
+    color: #888;
+
+    text-decoration: none;
+
+}
+
+.breadcrumb a:hover {
+
+    color: #111;
+
+}
+
+.breadcrumb span:last-child {
+
+    color: #111;
+
+}

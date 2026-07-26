@@ -1,12 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { FiChevronDown, FiSearch } from "react-icons/fi";
+import projects from "@/app/data/project";
 
-export default function HomeHeader() {
-
+export default function HomeHeader({
+  internal = false
+}) {
   const closeTimer = useRef(null);
+
+  const [scrolled, setScrolled] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
+
+  // Build the menu automatically from project.js
+  const menu = useMemo(() => {
+    const grouped = {};
+
+    projects.forEach((project) => {
+      const discipline = project.discipline.title;
+
+      if (!grouped[discipline]) {
+        grouped[discipline] = [];
+      }
+
+      const exists = grouped[discipline].find(
+        (item) => item.slug === project.category.slug
+      );
+
+      if (!exists) {
+        grouped[discipline].push({
+          title: project.category.title,
+          slug: project.category.slug,
+          disciplineSlug: project.discipline.slug,
+          href: `/expertise/${project.discipline.slug}/${project.category.slug}`,
+        });
+      }
+    });
+
+    Object.keys(grouped).forEach((key) => {
+      grouped[key].sort((a, b) => a.title.localeCompare(b.title));
+    });
+
+    return grouped;
+  }, []);
+
+  const disciplines = Object.keys(menu);
+
+  const [activeMenu, setActiveMenu] = useState(
+    disciplines.length ? disciplines[0] : ""
+  );
 
   const openMegaMenu = () => {
     clearTimeout(closeTimer.current);
@@ -19,71 +62,19 @@ export default function HomeHeader() {
     }, 250);
   };
 
-  const [scrolled, setScrolled] = useState(false);
-
-  const [openMenu, setOpenMenu] = useState(false);
-
-  const [activeMenu, setActiveMenu] = useState(
-    "Architectural Design"
-  );
-
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 30);
 
     window.addEventListener("scroll", onScroll);
 
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const menu = {
-    "Architectural Design": [
-      {
-        title: "Commercial",
-        href: "/expertise/architectural-design/commercial",
-      },
-      {
-        title: "Healthcare",
-        href: "/expertise/architectural-design/healthcare",
-      },
-      {
-        title: "Hospitality",
-        href: "/expertise/architectural-design/hospitality",
-      },
-      {
-        title: "Infrastructure",
-        href: "/expertise/architectural-design/infrastructure",
-      },
-      {
-        title: "Mixed Use",
-        href: "/expertise/architectural-design/mixed-use",
-      },
-      {
-        title: "Private Residences",
-        href: "/expertise/architectural-design/private-residences",
-      },
-      {
-        title: "Residential",
-        href: "/expertise/architectural-design/residential",
-      },
-    ],
-
-    "Interior Design": [
-      {
-        title: "Private Residences",
-        href: "/expertise/interior-design/private-residences",
-      },
-      {
-        title: "Residential",
-        href: "/expertise/interior-design/residential",
-      },
-    ],
-  };
-
   return (
     <header
-      className={`home-header ${scrolled ? "header-scrolled" : ""
+      className={`home-header ${scrolled || internal
+          ? "header-scrolled"
+          : ""
         }`}
     >
       <Link href="/" className="logo">
@@ -91,13 +82,9 @@ export default function HomeHeader() {
       </Link>
 
       <nav className="main-nav">
-        <Link href="/">
-          Home
-        </Link>
+        <Link href="/">Home</Link>
 
-        <Link href="/identity">
-          Identity
-        </Link>
+        <Link href="/identity">Identity</Link>
 
         <div
           className="expertise-wrapper"
@@ -111,49 +98,40 @@ export default function HomeHeader() {
 
           {openMenu && (
             <div className="mega-menu">
-
               <div className="mega-left">
-
-                {Object.keys(menu).map((item) => (
+                {disciplines.map((discipline) => (
                   <div
-                    key={item}
-                    className={`mega-item ${activeMenu === item ? "active" : ""
+                    key={discipline}
+                    className={`mega-item ${activeMenu === discipline
+                      ? "active"
+                      : ""
                       }`}
-                    onMouseEnter={() => {
-                      setActiveMenu(item);
-                      openMegaMenu();
-                    }}
+                    onMouseEnter={() =>
+                      setActiveMenu(discipline)
+                    }
                   >
-                    {item}
+                    {discipline}
                   </div>
                 ))}
-
               </div>
 
               <div className="mega-right">
-
-                {menu[activeMenu].map((subItem) => (
+                {(menu[activeMenu] || []).map((item) => (
                   <Link
-                    key={subItem.title}
-                    href={subItem.href}
+                    key={item.href}
+                    href={item.href}
                   >
-                    {subItem.title}
+                    {item.title}
                   </Link>
                 ))}
-
               </div>
-
             </div>
           )}
         </div>
 
-        <Link href="/strength">
-          Strength
-        </Link>
+        <Link href="/strength">Strength</Link>
 
-        <Link href="/connect">
-          Connect
-        </Link>
+        <Link href="/connect">Connect</Link>
       </nav>
 
       <button className="search-button">

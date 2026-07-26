@@ -1,13 +1,10 @@
 export default function ProjectHeader({ project }) {
-
   return (
-
     <section className="project-header">
-
       <div className="project-header-inner">
 
         <p className="project-category">
-          {project.category.replace(/-/g, " ").toUpperCase()}
+          {project.category.title.toUpperCase()}
         </p>
 
         <h1 className="project-title">
@@ -49,9 +46,6 @@ export default function ProjectHeader({ project }) {
         </div>
 
       </div>
-
     </section>
-
   );
-
 }
