@@ -1,0 +1,200 @@
+.masonry-gallery {
+
+    width: min(1600px, 92%);
+
+    margin: 80px auto 120px;
+
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: 24px;
+
+}
+
+/* ---------- CARD ---------- */
+
+.project-image-card {
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #f5f5f5;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .10);
+
+    transition: .35s ease;
+
+}
+
+.project-image-card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+.project-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s ease;
+
+}
+
+.project-image-card:hover .project-image {
+
+    transform: scale(1.05);
+
+}
+
+/* ---------- LAYOUT ---------- */
+
+.hero {
+
+    grid-column: span 12;
+
+    aspect-ratio: 16/9;
+
+}
+
+.half {
+
+    grid-column: span 6;
+
+    aspect-ratio: 4/5;
+
+}
+
+.gallery-empty {
+
+    text-align: center;
+
+    margin: 100px;
+
+    font-size: 22px;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:900px) {
+
+    .hero,
+    .half {
+
+        grid-column: span 12;
+
+    }
+
+}
+
+/* ---------- LIGHTBOX ---------- */
+
+.lightbox-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .94);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+}
+
+.lightbox-image-wrapper {
+
+    position: relative;
+
+    width: 85vw;
+
+    height: 85vh;
+
+}
+
+.lightbox-image {
+
+    object-fit: contain;
+
+}
+
+.lightbox-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+}
+
+.lightbox-arrow.left {
+
+    left: 40px;
+
+}
+
+.lightbox-arrow.right {
+
+    right: 40px;
+
+}
+
+.lightbox-close {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 40px;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+}
+
+.lightbox-counter {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+
+}
