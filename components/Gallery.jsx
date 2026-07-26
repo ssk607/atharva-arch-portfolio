@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 export default function Gallery({ images = [] }) {
+  console.log(images);
+
   const [current, setCurrent] = useState(0);
 
   if (!images.length) {
@@ -41,8 +43,15 @@ export default function Gallery({ images = [] }) {
 
       <img
         src={images[current]}
-        alt={`Project ${current + 1}`}
-        className="gallery-image"
+        alt="Gallery"
+        style={{
+          width: "600px",
+          height: "400px",
+          objectFit: "cover",
+          border: "5px solid blue",
+          display: "block",
+          margin: "auto"
+        }}
       />
 
       <button

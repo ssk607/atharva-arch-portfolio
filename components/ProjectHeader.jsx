@@ -48,7 +48,7 @@ export default function ProjectHeader({
 
           <div>
             <h4>Services</h4>
-            <p>{services.join(", ")}</p>
+            <p>{services?.join(", ") || "Architectural Design"}</p>
           </div>
 
         </div>

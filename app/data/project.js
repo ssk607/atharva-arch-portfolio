@@ -2,31 +2,34 @@ const projects = [
   {
     id: "moreshwar",
 
-    title: "MORESHWAR BUILDCON",
+    title: "Moreshwar Buildcon",
 
-    category: "Residential",
+    discipline: "architectural-design",
+
+    category: "residential",
 
     client: "Moreshwar Buildcon",
 
     location: "Pune, Maharashtra",
 
-    year: "2026",
-
-    status: "On Going",
-
     area: "18,500 sq.ft.",
 
+    year: "2026",
+
+    status: "Built",
+
     services: [
-      "Architecture",
+      "Architectural Design",
       "Interior Design"
     ],
 
     description:
-      "A contemporary mixed-use development designed with a focus on natural light, efficient planning and elegant modern architecture.",
+      "A contemporary residential development designed with clean geometry, efficient planning, natural light and elegant modern architecture.",
 
     cover: "/images/MORESHWAR_BUILDCON.jpg",
 
     images: [
+      "/images/MORESHWAR_BUILDCON.jpg",
       "/images/MORESHWAR_02.jpg",
       "/images/MORESHWAR_03.jpg"
     ]
@@ -35,28 +38,28 @@ const projects = [
   {
     id: "gazebo",
 
-    title: "GAZEBO",
+    title: "Gazebos",
 
-    category: "Landscape",
+    discipline: "architectural-design",
+
+    category: "residential",
 
     client: "Private Client",
 
-    location: "Pune, Maharashtra",
+    location: "Mumbai, Maharashtra",
+
+    area: "2,000 sq.ft.",
 
     year: "2026",
 
     status: "Built",
 
-    area: "750 sq.ft.",
-
     services: [
-      "Architecture",
-      "Interior Design",
-      "Landscape"
+      "Architectural Design"
     ],
 
     description:
-      "A collection of bespoke gazebo structures designed to blend with their landscape while providing comfortable outdoor living spaces.",
+      "A collection of bespoke gazebo structures designed to blend seamlessly with landscaped environments while providing elegant outdoor living spaces.",
 
     cover: "/images/GAZEBO_Aundh.png",
 
@@ -68,27 +71,29 @@ const projects = [
   {
     id: "om-construction",
 
-    title: "OM CONSTRUCTIONS",
+    title: "Om Construction",
 
-    category: "Residential",
+    discipline: "architectural-design",
 
-    client: "Om Constructions",
+    category: "residential",
 
-    location: "Pune, Maharashtra",
+    client: "Om Construction",
+
+    location: "Alibaug, Maharashtra",
+
+    area: "12,500 sq.ft.",
 
     year: "2026",
 
-    status: "On Going",
-
-    area: "16,705 sq.ft.",
+    status: "Built",
 
     services: [
-      "Architecture",
+      "Architectural Design",
       "Interior Design"
     ],
 
     description:
-      "A residential project that combines clean geometry, functional planning and contemporary detailing.",
+      "A contemporary residential project combining functional planning, clean architectural lines and carefully detailed interiors.",
 
     cover: "/images/OM_CONST_SAHAKARNAGAR.jpeg",
 

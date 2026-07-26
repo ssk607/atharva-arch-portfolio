@@ -29,16 +29,6 @@ export default function HomeSlide({ project, active }) {
           {project.title}
         </h1>
 
-        <div className="hero-info">
-          <span>{project.year}</span>
-          <span>•</span>
-          <span>{project.status}</span>
-        </div>
-
-        <button className="hero-button">
-          View Project
-        </button>
-
       </div>
 
     </Link>

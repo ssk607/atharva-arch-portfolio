@@ -1,10 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiChevronDown, FiSearch } from "react-icons/fi";
 
 export default function HomeHeader() {
+
+  const closeTimer = useRef(null);
+
+  const openMegaMenu = () => {
+    clearTimeout(closeTimer.current);
+    setOpenMenu(true);
+  };
+
+  const closeMegaMenu = () => {
+    closeTimer.current = setTimeout(() => {
+      setOpenMenu(false);
+    }, 250);
+  };
+
   const [scrolled, setScrolled] = useState(false);
 
   const [openMenu, setOpenMenu] = useState(false);
@@ -25,33 +39,61 @@ export default function HomeHeader() {
 
   const menu = {
     "Architectural Design": [
-      "Commercial",
-      "Healthcare",
-      "Hospitality",
-      "Infrastructure",
-      "Mixed Use",
-      "Private Residences",
-      "Residential",
+      {
+        title: "Commercial",
+        href: "/expertise/architectural-design/commercial",
+      },
+      {
+        title: "Healthcare",
+        href: "/expertise/architectural-design/healthcare",
+      },
+      {
+        title: "Hospitality",
+        href: "/expertise/architectural-design/hospitality",
+      },
+      {
+        title: "Infrastructure",
+        href: "/expertise/architectural-design/infrastructure",
+      },
+      {
+        title: "Mixed Use",
+        href: "/expertise/architectural-design/mixed-use",
+      },
+      {
+        title: "Private Residences",
+        href: "/expertise/architectural-design/private-residences",
+      },
+      {
+        title: "Residential",
+        href: "/expertise/architectural-design/residential",
+      },
     ],
 
     "Interior Design": [
-      "Private Residences",
-      "Residential",
+      {
+        title: "Private Residences",
+        href: "/expertise/interior-design/private-residences",
+      },
+      {
+        title: "Residential",
+        href: "/expertise/interior-design/residential",
+      },
     ],
   };
 
   return (
     <header
-      className={`home-header ${
-        scrolled ? "header-scrolled" : ""
-      }`}
+      className={`home-header ${scrolled ? "header-scrolled" : ""
+        }`}
     >
       <Link href="/" className="logo">
         ATHARVA KULKARNI ARCHITECTS
       </Link>
 
       <nav className="main-nav">
-        <Link href="/">Projects</Link>
+        <Link href="/">
+          Home
+        </Link>
 
         <Link href="/identity">
           Identity
@@ -59,8 +101,8 @@ export default function HomeHeader() {
 
         <div
           className="expertise-wrapper"
-          onMouseEnter={() => setOpenMenu(true)}
-          onMouseLeave={() => setOpenMenu(false)}
+          onMouseEnter={openMegaMenu}
+          onMouseLeave={closeMegaMenu}
         >
           <span className="expertise-link">
             Expertise
@@ -75,14 +117,12 @@ export default function HomeHeader() {
                 {Object.keys(menu).map((item) => (
                   <div
                     key={item}
-                    className={`mega-item ${
-                      activeMenu === item
-                        ? "active"
-                        : ""
-                    }`}
-                    onMouseEnter={() =>
-                      setActiveMenu(item)
-                    }
+                    className={`mega-item ${activeMenu === item ? "active" : ""
+                      }`}
+                    onMouseEnter={() => {
+                      setActiveMenu(item);
+                      openMegaMenu();
+                    }}
                   >
                     {item}
                   </div>
@@ -92,16 +132,14 @@ export default function HomeHeader() {
 
               <div className="mega-right">
 
-                {menu[activeMenu].map(
-                  (subItem) => (
-                    <Link
-                      key={subItem}
-                      href="#"
-                    >
-                      {subItem}
-                    </Link>
-                  )
-                )}
+                {menu[activeMenu].map((subItem) => (
+                  <Link
+                    key={subItem.title}
+                    href={subItem.href}
+                  >
+                    {subItem.title}
+                  </Link>
+                ))}
 
               </div>
 

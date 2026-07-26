@@ -1,20 +1,25 @@
-import Gallery from "@/components/Gallery";
-import ProjectHeader from "@/components/ProjectHeader";
-import projects from "@/app/data/project";
 import { notFound } from "next/navigation";
 
+import projects from "@/app/data/project";
+
+import ProjectHeader from "@/components/ProjectHeader";
+
+import Gallery from "@/components/Gallery";
+
 export default async function ProjectPage({ params }) {
+
   const { slug } = await params;
 
-  console.log("Slug:", slug);
-
-  const project = projects.find((p) => p.id === slug);
-
-  console.log("Project:", project);
+  const project = projects.find(
+    p => p.id === slug
+  );
 
   if (!project) {
     notFound();
   }
+
+  console.log("PROJECT:", project);
+  console.log("IMAGES:", project.images);
 
   return (
     <>
@@ -40,9 +45,7 @@ export default async function ProjectPage({ params }) {
 
       </section>
 
-      <Gallery
-        images={project.images}
-      />
+      <Gallery images={project.images} />
 
     </>
   );
