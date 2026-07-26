@@ -1,54 +1,49 @@
-export default function ProjectHeader({
-  title,
-  category,
-  client,
-  location,
-  area,
-  year,
-  status,
-  services,
-}) {
+export default function ProjectHeader({ project }) {
+
   return (
+
     <section className="project-header">
 
-      <div className="project-header-content">
+      <div className="project-header-inner">
 
         <p className="project-category">
-          {category}
+          {project.category.replace(/-/g, " ").toUpperCase()}
         </p>
 
-        <h1>{title}</h1>
+        <h1 className="project-title">
+          {project.title}
+        </h1>
 
-        <div className="project-grid">
+        <div className="project-meta">
 
           <div>
             <h4>Client</h4>
-            <p>{client}</p>
+            <p>{project.client}</p>
           </div>
 
           <div>
             <h4>Location</h4>
-            <p>{location}</p>
+            <p>{project.location}</p>
           </div>
 
           <div>
             <h4>Area</h4>
-            <p>{area}</p>
+            <p>{project.area}</p>
           </div>
 
           <div>
             <h4>Year</h4>
-            <p>{year}</p>
+            <p>{project.year}</p>
           </div>
 
           <div>
             <h4>Status</h4>
-            <p>{status}</p>
+            <p>{project.status}</p>
           </div>
 
           <div>
             <h4>Services</h4>
-            <p>{services?.join(", ") || "Architectural Design"}</p>
+            <p>{project.services.join(", ")}</p>
           </div>
 
         </div>
@@ -56,5 +51,7 @@ export default function ProjectHeader({
       </div>
 
     </section>
+
   );
+
 }

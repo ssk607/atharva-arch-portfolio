@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 
 import projects from "@/app/data/project";
 
-import ProjectHeader from "@/components/ProjectHeader";
+import ProjectNavigation from "@/components/Project/ProjectNavigation";
 
-import MasonryGallery from "@/components/MasonryGallery";
+import ProjectHeader from "@/components/Project/ProjectHeader";
+
+import MasonryGallery from "@/components/Gallery/MasonryGallery";
 
 export default async function ProjectPage({ params }) {
 

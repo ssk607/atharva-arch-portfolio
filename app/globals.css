@@ -161,17 +161,6 @@
     right: 25px;
 }
 
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 24px 50px;
-
-    background: #111;
-    color: white;
-}
-
 .back-link {
     color: white;
     text-decoration: none;
@@ -733,29 +722,94 @@ PROJECT PAGE
 
 .project-header {
 
-    padding: 180px 8% 80px;
+    background: #F6F4F0;
 
-    background: #faf8f5;
+    padding: 120px 0;
 
-    color: #111;
 }
 
-.project-header h1 {
+.project-header-inner {
 
-    font-size: 72px;
+    width: min(1300px, 90%);
 
-    font-weight: 300;
+    margin: auto;
 
-    margin: 20px 0 60px;
 }
 
 .project-category {
 
-    letter-spacing: 3px;
+    text-align: center;
+
+    font-size: 14px;
+
+    letter-spacing: 5px;
 
     text-transform: uppercase;
 
-    color: #9d8b68;
+    color: #9b8b70;
+
+    margin-bottom: 20px;
+
+}
+
+.project-title {
+
+    text-align: center;
+
+    font-size: clamp(54px, 6vw, 88px);
+
+    font-weight: 300;
+
+    margin-bottom: 80px;
+
+    letter-spacing: -2px;
+
+}
+
+.project-meta {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 50px;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 50px;
+
+}
+
+.project-meta div {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.project-meta h4 {
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #999;
+
+    margin-bottom: 10px;
+
+}
+
+.project-meta p {
+
+    font-size: 20px;
+
+    color: #111;
+
+    line-height: 1.5;
+
 }
 
 .project-grid {

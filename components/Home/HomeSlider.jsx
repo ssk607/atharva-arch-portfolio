@@ -52,9 +52,8 @@ export default function HomeSlider({ projects }) {
         {projects.map((_, index) => (
           <button
             key={index}
-            className={`hero-dot ${
-              current === index ? "active" : ""
-            }`}
+            className={`hero-dot ${current === index ? "active" : ""
+              }`}
             onClick={() => setCurrent(index)}
           />
         ))}

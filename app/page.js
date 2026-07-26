@@ -1,5 +1,5 @@
-import HomeHeader from "@/components/HomeHeader";
-import HomeSlider from "@/components/HomeSlider";
+import HomeHeader from "@/components/Header/HomeHeader";
+import HomeSlider from "@/components/Home/HomeSlider";
 import projects from "./data/project";
 
 export default function Home() {

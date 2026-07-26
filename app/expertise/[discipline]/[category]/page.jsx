@@ -6,17 +6,11 @@ export default async function CategoryPage({ params }) {
 
     const { discipline, category } = await params;
 
-    console.log("PARAMS:", { discipline, category });
-
-    console.log("PROJECTS:", projects);
-
     const filteredProjects = projects.filter(
         (project) =>
             project.discipline === discipline &&
             project.category === category
     );
-
-    console.log("FILTERED:", filteredProjects);
 
     if (!filteredProjects.length) {
         notFound();
