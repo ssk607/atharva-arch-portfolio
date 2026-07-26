@@ -4,6 +4,11 @@ const categories = {
         title: "Residential",
     },
 
+    landscape: {
+        slug: "landscape",
+        title: "Landscape",
+    },
+
     commercial: {
         slug: "commercial",
         title: "Commercial",

@@ -45,7 +45,7 @@ const projects = [
 
     discipline: disciplines.architecture,
 
-    category: categories.residential,
+    category: categories.landscape,
 
     client: "Private Client",
 

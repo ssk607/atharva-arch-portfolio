@@ -3,46 +3,26 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FiChevronDown, FiSearch } from "react-icons/fi";
-import projects from "@/app/data/project";
+import expertise from "@/app/data/expertise";
 
-export default function HomeHeader({
-  internal = false
-}) {
+export default function HomeHeader({ internal = false }) {
   const closeTimer = useRef(null);
 
   const [scrolled, setScrolled] = useState(false);
 
-  const [openMenu, setOpenMenu] = useState(false);
+  // active dropdown: "expertise" | "connect" | null
+  const [activeDropdown, setActiveDropdown] = useState(null);
 
-  const [openConnectMenu, setOpenConnectMenu] = useState(false);
-
-  // Build the menu automatically from project.js
+  // active discipline shown in Expertise menu
   const menu = useMemo(() => {
     const grouped = {};
 
-    projects.forEach((project) => {
-      const discipline = project.discipline.title;
-
-      if (!grouped[discipline]) {
-        grouped[discipline] = [];
-      }
-
-      const exists = grouped[discipline].find(
-        (item) => item.slug === project.category.slug
-      );
-
-      if (!exists) {
-        grouped[discipline].push({
-          title: project.category.title,
-          slug: project.category.slug,
-          disciplineSlug: project.discipline.slug,
-          href: `/expertise/${project.discipline.slug}/${project.category.slug}`,
-        });
-      }
-    });
-
-    Object.keys(grouped).forEach((key) => {
-      grouped[key].sort((a, b) => a.title.localeCompare(b.title));
+    expertise.forEach((discipline) => {
+      grouped[discipline.title] = discipline.categories.map((category) => ({
+        title: category.title,
+        slug: category.slug,
+        href: `/expertise/${discipline.slug}/${category.slug}`,
+      }));
     });
 
     return grouped;
@@ -54,27 +34,28 @@ export default function HomeHeader({
     disciplines.length ? disciplines[0] : ""
   );
 
-  const openMegaMenu = () => {
+  const openDropdown = (type) => {
     clearTimeout(closeTimer.current);
-
-    setOpenConnectMenu(false);   // Close Connect
-    setOpenMenu(true);           // Open Expertise
+    setActiveDropdown(type);
   };
 
-  const closeMegaMenu = () => {
+  const closeDropdown = () => {
     closeTimer.current = setTimeout(() => {
-      setOpenMenu(false);
-    }, 250);
+      setActiveDropdown(null);
+    }, 220);
   };
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
 
     window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
-
   return (
     <header
       className={`home-header ${scrolled || internal
@@ -91,29 +72,30 @@ export default function HomeHeader({
 
         <Link href="/identity">Identity</Link>
 
+        {/* =========================
+      EXPERTISE
+  ========================= */}
+
         <div
-          className="expertise-wrapper"
-          onMouseEnter={openMegaMenu}
-          onMouseLeave={closeMegaMenu}
+          className="dropdown-wrapper"
+          onMouseEnter={() => openDropdown("expertise")}
+          onMouseLeave={closeDropdown}
         >
           <span className="expertise-link">
             Expertise
             <FiChevronDown />
           </span>
 
-          {openMenu && (
+          {activeDropdown === "expertise" && (
             <div className="mega-menu">
+
               <div className="mega-left">
                 {disciplines.map((discipline) => (
                   <div
                     key={discipline}
-                    className={`mega-item ${activeMenu === discipline
-                      ? "active"
-                      : ""
+                    className={`mega-item ${activeMenu === discipline ? "active" : ""
                       }`}
-                    onMouseEnter={() =>
-                      setActiveMenu(discipline)
-                    }
+                    onMouseEnter={() => setActiveMenu(discipline)}
                   >
                     {discipline}
                   </div>
@@ -130,40 +112,46 @@ export default function HomeHeader({
                   </Link>
                 ))}
               </div>
+
             </div>
           )}
         </div>
 
         <Link href="/strength">Strength</Link>
 
-        <div
-          className="expertise-wrapper"
-          onMouseEnter={() => {
-            clearTimeout(closeTimer.current);
+        {/* =========================
+      CONNECT
+  ========================= */}
 
-            setOpenMenu(false);          // Close Expertise
-            setOpenConnectMenu(true);    // Open Connect
-          }}
-          onMouseLeave={() => {
-            closeTimer.current = setTimeout(() => {
-              setOpenConnectMenu(false);
-            }, 250);
-          }}
+        <div
+          className="dropdown-wrapper"
+          onMouseEnter={() => openDropdown("connect")}
+          onMouseLeave={closeDropdown}
         >
           <span className="expertise-link">
             Connect
             <FiChevronDown />
           </span>
 
-          {openConnectMenu && (
-            <div className="connect-menu">
-              <Link href="/contact">
-                Contact Us
-              </Link>
+          {activeDropdown === "connect" && (
+            <div className="mega-menu connect-mega">
 
-              <Link href="/careers">
-                Careers
-              </Link>
+              <div className="mega-left">
+                <div className="mega-item active">
+                  CONNECT
+                </div>
+              </div>
+
+              <div className="mega-right">
+                <Link href="/contact">
+                  Contact Us
+                </Link>
+
+                <Link href="/careers">
+                  Careers
+                </Link>
+              </div>
+
             </div>
           )}
         </div>
