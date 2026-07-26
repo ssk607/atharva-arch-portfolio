@@ -6,6 +6,10 @@ const expertise = [
             {
                 title: "Residential",
                 slug: "residential",
+            }, 
+            {
+                title: "Landscape",
+                slug: "landscape",
             },
             {
                 title: "Commercial",
