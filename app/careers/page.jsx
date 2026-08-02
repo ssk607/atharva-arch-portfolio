@@ -14,7 +14,7 @@ export default function CareersPage() {
                 <div className="career-content">
 
                     <h1 className="career-label">
-                        CAREERS
+                        Work With Us
                     </h1>
 
                     <h1>
@@ -109,9 +109,9 @@ export default function CareersPage() {
 
                 </p>
 
-                <a href="mailto:careers@atharvaarchitects.com">
+                <a href="mailto:careers@studioaka.in">
 
-                    careers@atharvaarchitects.com
+                    careers@studioaka.in
 
                 </a>
 

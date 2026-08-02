@@ -15,15 +15,6 @@ export default function ContactInfo() {
                 Contact Information
             </h2>
 
-            <p className="contact-info-text">
-
-                Whether you're planning a new home,
-                commercial development or interior
-                renovation, we'd love to hear about
-                your ideas and discuss how we can help.
-
-            </p>
-
             <div className="contact-card">
 
                 <FiMapPin />

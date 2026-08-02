@@ -18,8 +18,7 @@ export default function Footer() {
                     <h3>ATHARVA KULKARNI ARCHITECTS</h3>
 
                     <p>
-                        Architecture crafted with simplicity,
-                        precision and timeless design.
+                        DESIGN | BUILD | INSPIRE
                     </p>
 
                 </div>
@@ -36,11 +35,30 @@ export default function Footer() {
 
                     <div className="social-icons">
 
-                        <FiInstagram />
+                        <a
+                            href="https://www.instagram.com/_ak_architects?igsh=MTkycHhhb216eW91Nw=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+                            <FiInstagram />
+                        </a>
 
-                        <FiLinkedin />
+                        <a
+                            href="https://www.linkedin.com/in/ar-atharva-kulkarni-17660a244?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="LinkedIn"
+                        >
+                            <FiLinkedin />
+                        </a>
 
-                        <FiMail />
+                        <a
+                            href="mailto:atharva@studioaka.in"
+                            aria-label="Email"
+                        >
+                            <FiMail />
+                        </a>
 
                     </div>
 
@@ -50,7 +68,23 @@ export default function Footer() {
 
             <div className="footer-bottom">
 
-                © 2026 Atharva Kulkarni Architects
+                <p>
+                    © {new Date().getFullYear()} Atharva Kulkarni Architects
+                </p>
+
+                <p className="footer-credit">
+
+                    Created by{" "}
+
+                    <a
+                        href="https://www.linkedin.com/in/siddhesh-khatavka-java-ai-developer/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Siddhesh Khatavkar
+                    </a>
+
+                </p>
 
             </div>
 
