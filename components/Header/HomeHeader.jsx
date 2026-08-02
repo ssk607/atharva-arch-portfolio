@@ -134,25 +134,63 @@ export default function HomeHeader({ internal = false }) {
           </span>
 
           {activeDropdown === "connect" && (
+
             <div className="mega-menu connect-mega">
 
-              <div className="mega-left">
-                <div className="mega-item active">
-                  CONNECT
-                </div>
+              <div className="connect-image">
+
+                <img
+                  src="/images/connect-menu.jpg"
+                  alt="Atharva Architects"
+                />
+
               </div>
 
-              <div className="mega-right">
-                <Link href="/contact">
-                  Contact Us
-                </Link>
+              <div className="connect-content">
 
-                <Link href="/careers">
-                  Careers
-                </Link>
+                <p className="mega-title">
+                  CONNECT
+                </p>
+
+                <h3>
+                  Let's Build
+                  <br />
+                  Something Beautiful
+                </h3>
+
+                <p className="connect-description">
+
+                  We collaborate with homeowners,
+                  developers and organizations to create
+                  thoughtful architecture and interiors.
+                  We are also always looking for passionate
+                  architects to join our growing team.
+
+                </p>
+
+                <a
+                  href="mailto:hello@atharvaarchitects.com"
+                  className="connect-email"
+                >
+                  hello@atharvaarchitects.com
+                </a>
+
+                <div className="connect-links">
+
+                  <Link href="/contact">
+                    Contact Us
+                  </Link>
+
+                  <Link href="/careers">
+                    Careers
+                  </Link>
+
+                </div>
+
               </div>
 
             </div>
+
           )}
         </div>
       </nav>
