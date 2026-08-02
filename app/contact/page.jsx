@@ -19,9 +19,9 @@ export default function ContactPage() {
 
                 <div className="contact-hero-content">
 
-                    <p className="contact-label">
+                    <h1 className="contact-label">
                         GET IN TOUCH
-                    </p>
+                    </h1>
 
                     <h1>
 

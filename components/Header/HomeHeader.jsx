@@ -64,7 +64,7 @@ export default function HomeHeader({ internal = false }) {
         }`}
     >
       <Link href="/" className="logo">
-        ATHARVA KULKARNI ARCHITECTS
+        AKA
       </Link>
 
       <nav className="main-nav">

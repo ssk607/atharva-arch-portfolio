@@ -30,7 +30,7 @@ export default function ContactInfo() {
 
                 <div>
 
-                    <h3>Pune Office</h3>
+                    <h3>Pune</h3>
 
                 </div>
 
@@ -42,7 +42,7 @@ export default function ContactInfo() {
 
                 <div>
 
-                    <h3>Kolhapur Office</h3>
+                    <h3>Pandharpur</h3>
 
                 </div>
 
@@ -56,9 +56,7 @@ export default function ContactInfo() {
 
                     <h3>Phone</h3>
 
-                    <p>+91 8956 728 281</p>
-
-                    <p>+91 8956 728 282</p>
+                    <p>+91 8446 015 936</p>
 
                 </div>
 
@@ -72,7 +70,7 @@ export default function ContactInfo() {
 
                     <h3>Email</h3>
 
-                    <p>info@atharvaarchitects.com</p>
+                    <p>info@studioaka.in</p>
 
                 </div>
 
