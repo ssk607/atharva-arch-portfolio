@@ -35,6 +35,7 @@ const projects = [
       "/images/MORESHWAR_BUILDCON.jpg",
       "/images/MORESHWAR_02.jpg",
       "/images/MORESHWAR_03.jpg",
+      "/images/MORESHWAR_04.jpeg"
     ],
   },
 
@@ -49,9 +50,9 @@ const projects = [
 
     client: "Private Client",
 
-    location: "Mumbai, Maharashtra",
+    location: "Pune, Maharashtra",
 
-    area: "2,000 sq.ft.",
+    area: "750 sq.ft.",
 
     year: "2026",
 
@@ -82,17 +83,16 @@ const projects = [
 
     client: "Om Construction",
 
-    location: "Alibaug, Maharashtra",
+    location: "Pune, Maharashtra",
 
-    area: "12,500 sq.ft.",
+    area: "20,000 sq.ft.",
 
     year: "2026",
 
-    status: "Built",
+    status: "Ongoing",
 
     services: [
-      "Architectural Design",
-      "Interior Design",
+      "Architectural Design"
     ],
 
     description:
