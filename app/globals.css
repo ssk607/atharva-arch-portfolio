@@ -622,7 +622,7 @@ MEGA MENU
 
     text-transform: uppercase;
 
-    color: #666;
+    color: #020202;
 
     transition: .3s;
 
@@ -671,9 +671,7 @@ MEGA MENU
 
 .mega-right a:hover {
 
-    background: #A68B63;
-
-    color: white;
+    color: rgb(2, 49, 10);
 
     padding-left: 50px;
 
@@ -2056,7 +2054,7 @@ CATEGORY PAGE
 
     padding: 14px 24px;
 
-    color: #364b05f6;
+    color: #070707f6;
 
     text-decoration: none;
 
