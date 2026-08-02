@@ -2489,3 +2489,455 @@ CATEGORY PAGE
     margin: 120px auto;
 
 }
+
+/*=========================================================
+    IDENTITY HERO
+=========================================================*/
+
+.identity-hero{
+
+    background:#F6F4F0;
+
+    padding:170px 0 120px;
+
+}
+
+.identity-hero-inner{
+
+    width:min(1450px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+.identity-label{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#A68B63;
+
+    margin-bottom:25px;
+
+}
+
+.identity-hero h1{
+
+    font-size:clamp(62px,6vw,92px);
+
+    font-weight:300;
+
+    line-height:1.02;
+
+    letter-spacing:-2px;
+
+    margin-bottom:40px;
+
+}
+
+.identity-intro{
+
+    max-width:650px;
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#666;
+
+}
+
+.identity-image{
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+}
+
+.identity-image img{
+
+    width:100%;
+
+    height:760px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/*=========================================================
+    DESIGN APPROACH
+=========================================================*/
+
+.design-approach{
+
+    padding:140px 0;
+
+}
+
+.design-container{
+
+    width:min(1450px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+.design-image{
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+}
+
+.design-image img{
+
+    width:100%;
+
+    height:700px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.section-label{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#A68B63;
+
+    margin-bottom:20px;
+
+}
+
+.design-content h2{
+
+    font-size:clamp(52px,5vw,72px);
+
+    font-weight:300;
+
+    line-height:1.1;
+
+    margin-bottom:35px;
+
+}
+
+.design-content p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#666;
+
+    margin-bottom:24px;
+
+}
+
+
+/*=========================================================
+    OUR STUDIO
+=========================================================*/
+
+.our-studio{
+
+    background:#F7F5F2;
+
+    padding:150px 0;
+
+}
+
+.studio-container{
+
+    width:min(1450px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:100px;
+
+    align-items:center;
+
+}
+
+.studio-content h2{
+
+    font-size:clamp(56px,5vw,76px);
+
+    font-weight:300;
+
+    line-height:1.08;
+
+    margin-bottom:40px;
+
+}
+
+.studio-content>p{
+
+    font-size:20px;
+
+    line-height:1.9;
+
+    color:#666;
+
+    margin-bottom:24px;
+
+}
+
+.studio-image{
+
+    overflow:hidden;
+
+    border-radius:18px;
+
+}
+
+.studio-image img{
+
+    width:100%;
+
+    height:780px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.studio-highlight{
+
+    margin-top:50px;
+
+    display:flex;
+
+    gap:25px;
+
+    align-items:flex-start;
+
+}
+
+.studio-highlight span{
+
+    width:3px;
+
+    height:120px;
+
+    background:#A68B63;
+
+    flex-shrink:0;
+
+}
+
+.studio-highlight p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#333;
+
+    font-style:italic;
+
+}
+
+/*=========================================================
+    CORE VALUES
+=========================================================*/
+
+.core-values{
+
+    padding:150px 0;
+
+}
+
+.values-grid{
+
+    width:min(1450px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:40px;
+
+}
+
+.value-card{
+
+    padding:70px;
+
+    border:1px solid #ECECEC;
+
+    background:white;
+
+    transition:.4s;
+
+    position:relative;
+
+}
+
+.value-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 30px 80px rgba(0,0,0,.08);
+
+}
+
+.value-number{
+
+    display:block;
+
+    font-size:90px;
+
+    font-weight:200;
+
+    color:#E7DED0;
+
+    margin-bottom:25px;
+
+    line-height:1;
+
+}
+
+.value-card h3{
+
+    font-size:34px;
+
+    font-weight:300;
+
+    margin-bottom:20px;
+
+}
+
+.value-card p{
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    color:#666;
+
+}
+
+/*=========================================================
+    FOUNDER QUOTE
+=========================================================*/
+
+.identity-quote{
+
+    background:#111;
+
+    color:white;
+
+    padding:180px 0;
+
+}
+
+.identity-quote-inner{
+
+    width:min(1100px,90%);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.quote-label{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:#A68B63;
+
+    margin-bottom:35px;
+
+}
+
+.identity-quote blockquote{
+
+    font-size:clamp(40px,4vw,68px);
+
+    font-weight:300;
+
+    line-height:1.3;
+
+    letter-spacing:-1px;
+
+    margin:0;
+
+}
+
+.quote-author{
+
+    margin-top:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.quote-author span{
+
+    width:80px;
+
+    height:1px;
+
+    background:#A68B63;
+
+}
+
+.quote-author p{
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#CCC;
+
+    font-size:14px;
+
+}
