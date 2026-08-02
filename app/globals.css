@@ -516,7 +516,7 @@ NAVIGATION
 
     position: relative;
 
-    font-size: 17px;
+    font-size: 20px;
 
     transition: .3s;
 }
@@ -1836,7 +1836,7 @@ CATEGORY PAGE
 
     letter-spacing: 4px;
 
-    color: #A68B63;
+    color: #364b05f6;
 
     margin-bottom: 25px;
 
@@ -2095,11 +2095,9 @@ CATEGORY PAGE
 
 .contact-label {
 
-    font-size: 14px;
+    font-size: 66px !important;
 
     letter-spacing: 4px;
-
-    text-transform: uppercase;
 
     color: #364b05f6;
 

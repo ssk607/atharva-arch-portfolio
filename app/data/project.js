@@ -42,13 +42,13 @@ const projects = [
   {
     id: "gazebo",
 
-    title: "Gazebos",
+    title: "Shirine Garden",
 
     discipline: disciplines.architecture,
 
     category: categories.landscape,
 
-    client: "Private Client",
+    client: "Chalukya Infra",
 
     location: "Pune, Maharashtra",
 

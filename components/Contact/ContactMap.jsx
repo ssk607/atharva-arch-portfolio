@@ -23,9 +23,7 @@ export default function ContactMap() {
         <section className="contact-map">
 
             <div className="section-title">
-                <p>OUR LOCATIONS</p>
-
-                <h2>Visit Our Offices</h2>
+                <h2>Our Locations</h2>
             </div>
 
             <MapContainer
