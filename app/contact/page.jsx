@@ -1,9 +1,9 @@
 import HomeHeader from "@/components/Header/HomeHeader";
 import Footer from "@/components/Footer/Footer";
 
+import ContactMapClient from "@/components/Contact/ContactMapClient";
 import ContactInfo from "@/components/Contact/ContactInfo";
 import ContactForm from "@/components/Contact/ContactForm";
-import ContactMap from "@/components/Contact/ContactMap";
 
 export default function ContactPage() {
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
 
             {/* Google Map */}
 
-            <ContactMap />
+            <ContactMapClient />
 
             {/* FAQ */}
 
