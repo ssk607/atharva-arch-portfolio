@@ -1,32 +1,55 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { FiChevronDown, FiSearch, FiMenu, FiX } from "react-icons/fi";
+import { useEffect, useMemo, useState } from "react";
+import {
+  FiChevronDown,
+  FiSearch,
+  FiMenu,
+  FiX,
+} from "react-icons/fi";
+
 import expertise from "@/app/data/expertise";
 
 export default function HomeHeader({ internal = false }) {
-  const closeTimer = useRef(null);
+  /* =====================================================
+     DESKTOP HEADER
+  ===================================================== */
 
   const [scrolled, setScrolled] = useState(false);
+
   const [activeDropdown, setActiveDropdown] = useState(null);
 
-  // Mobile menu
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileExpertiseOpen, setMobileExpertiseOpen] = useState(false);
-  const [mobileConnectOpen, setMobileConnectOpen] = useState(false);
-  const [mobileDiscipline, setMobileDiscipline] = useState(null);
+  /* =====================================================
+     MOBILE MENU
+  ===================================================== */
 
-  // Create expertise menu structure
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const [mobileExpertiseOpen, setMobileExpertiseOpen] =
+    useState(false);
+
+  const [mobileDiscipline, setMobileDiscipline] =
+    useState(null);
+
+  const [mobileConnectOpen, setMobileConnectOpen] =
+    useState(false);
+
+  /* =====================================================
+     BUILD EXPERTISE MENU
+  ===================================================== */
+
   const menu = useMemo(() => {
     const grouped = {};
 
     expertise.forEach((discipline) => {
-      grouped[discipline.title] = discipline.categories.map((category) => ({
-        title: category.title,
-        slug: category.slug,
-        href: `/expertise/${discipline.slug}/${category.slug}`,
-      }));
+      grouped[discipline.title] = discipline.categories.map(
+        (category) => ({
+          title: category.title,
+          slug: category.slug,
+          href: `/expertise/${discipline.slug}/${category.slug}`,
+        })
+      );
     });
 
     return grouped;
@@ -34,28 +57,17 @@ export default function HomeHeader({ internal = false }) {
 
   const disciplines = Object.keys(menu);
 
+  /* =====================================================
+     DESKTOP ACTIVE DISCIPLINE
+  ===================================================== */
+
   const [activeMenu, setActiveMenu] = useState(
     disciplines.length ? disciplines[0] : ""
   );
 
-  // ----------------------------------------
-  // Desktop dropdown controls
-  // ----------------------------------------
-
-  const openDropdown = (type) => {
-    clearTimeout(closeTimer.current);
-    setActiveDropdown(type);
-  };
-
-  const closeDropdown = () => {
-    closeTimer.current = setTimeout(() => {
-      setActiveDropdown(null);
-    }, 220);
-  };
-
-  // ----------------------------------------
-  // Scroll
-  // ----------------------------------------
+  /* =====================================================
+     SCROLL HEADER
+  ===================================================== */
 
   useEffect(() => {
     const onScroll = () => {
@@ -69,29 +81,9 @@ export default function HomeHeader({ internal = false }) {
     };
   }, []);
 
-  // ----------------------------------------
-  // Close mobile menu when screen becomes desktop
-  // ----------------------------------------
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 850) {
-        setMobileMenuOpen(false);
-        setMobileExpertiseOpen(false);
-        setMobileConnectOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // ----------------------------------------
-  // Prevent body scroll when mobile menu open
-  // ----------------------------------------
+  /* =====================================================
+     LOCK BODY WHEN MOBILE MENU IS OPEN
+  ===================================================== */
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -105,56 +97,133 @@ export default function HomeHeader({ internal = false }) {
     };
   }, [mobileMenuOpen]);
 
-  // ----------------------------------------
-  // Mobile menu helpers
-  // ----------------------------------------
+  /* =====================================================
+     CLOSE MOBILE MENU WHEN SCREEN BECOMES DESKTOP
+  ===================================================== */
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 850) {
+        setMobileMenuOpen(false);
+        setMobileExpertiseOpen(false);
+        setMobileDiscipline(null);
+        setMobileConnectOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  /* =====================================================
+     DESKTOP DROPDOWNS
+  ===================================================== */
+
+  const openDropdown = (type) => {
+    setActiveDropdown(type);
+  };
+
+  const closeDropdown = () => {
+    setActiveDropdown(null);
+  };
+
+  /* =====================================================
+     MOBILE MENU OPEN / CLOSE
+  ===================================================== */
+
+  const openMobileMenu = () => {
+    setMobileMenuOpen(true);
+  };
 
   const closeMobileMenu = () => {
     setMobileMenuOpen(false);
+
     setMobileExpertiseOpen(false);
+    setMobileDiscipline(null);
     setMobileConnectOpen(false);
+  };
+
+  /* =====================================================
+     MOBILE EXPERTISE
+  ===================================================== */
+
+  const toggleMobileExpertise = () => {
+    setMobileExpertiseOpen((previous) => !previous);
+
+    setMobileConnectOpen(false);
+
+    if (mobileExpertiseOpen) {
+      setMobileDiscipline(null);
+    }
+  };
+
+  /* =====================================================
+     MOBILE DISCIPLINE
+  ===================================================== */
+
+  const toggleMobileDiscipline = (discipline) => {
+    setMobileDiscipline((previous) =>
+      previous === discipline ? null : discipline
+    );
+  };
+
+  /* =====================================================
+     MOBILE CONNECT
+  ===================================================== */
+
+  const toggleMobileConnect = () => {
+    setMobileConnectOpen((previous) => !previous);
+
+    setMobileExpertiseOpen(false);
     setMobileDiscipline(null);
   };
 
-  const toggleMobileExpertise = () => {
-    setMobileExpertiseOpen((prev) => !prev);
-    setMobileConnectOpen(false);
+  /* =====================================================
+     MOBILE LINK CLICK
+  ===================================================== */
+
+  const handleMobileLinkClick = () => {
+    closeMobileMenu();
   };
 
-  const toggleMobileConnect = () => {
-    setMobileConnectOpen((prev) => !prev);
-    setMobileExpertiseOpen(false);
-  };
+  /* =====================================================
+     RENDER
+  ===================================================== */
 
   return (
     <>
       <header
-        className={`home-header ${
-          scrolled || internal ? "header-scrolled" : ""
-        }`}
+        className={`home-header ${scrolled || internal ? "header-scrolled" : ""
+          } ${mobileMenuOpen ? "mobile-header-open" : ""
+          }`}
       >
-        {/* LOGO */}
+        {/* =================================================
+            LOGO
+        ================================================= */}
+
         <Link
           href="/"
           className="logo"
-          onClick={closeMobileMenu}
+          onClick={handleMobileLinkClick}
         >
           AKA
         </Link>
 
-        {/* ==========================================
+        {/* =================================================
             DESKTOP NAVIGATION
-        ========================================== */}
+        ================================================= */}
 
         <nav className="main-nav">
-
           <Link href="/">Home</Link>
 
           <Link href="/identity">Identity</Link>
 
-          {/* =========================
+          {/* ===============================
               EXPERTISE
-          ========================= */}
+          =============================== */}
 
           <div
             className="dropdown-wrapper"
@@ -173,40 +242,30 @@ export default function HomeHeader({ internal = false }) {
               }
             >
               Expertise
-              <FiChevronDown
-                className={
-                  activeDropdown === "expertise"
-                    ? "dropdown-arrow-open"
-                    : ""
-                }
-              />
+              <FiChevronDown />
             </button>
 
             {activeDropdown === "expertise" && (
               <div className="mega-menu">
-
                 <div className="mega-left">
-
                   {disciplines.map((discipline) => (
-                    <div
+                    <button
+                      type="button"
                       key={discipline}
-                      className={`mega-item ${
-                        activeMenu === discipline
+                      className={`mega-item ${activeMenu === discipline
                           ? "active"
                           : ""
-                      }`}
+                        }`}
                       onMouseEnter={() =>
                         setActiveMenu(discipline)
                       }
                     >
                       {discipline}
-                    </div>
+                    </button>
                   ))}
-
                 </div>
 
                 <div className="mega-right">
-
                   {(menu[activeMenu] || []).map((item) => (
                     <Link
                       key={item.href}
@@ -215,24 +274,16 @@ export default function HomeHeader({ internal = false }) {
                       {item.title}
                     </Link>
                   ))}
-
                 </div>
-
               </div>
             )}
           </div>
 
-          {/* =========================
-              STRENGTH
-          ========================= */}
+          <Link href="/strength">Strength</Link>
 
-          <Link href="/strength">
-            Strength
-          </Link>
-
-          {/* =========================
+          {/* ===============================
               CONNECT
-          ========================= */}
+          =============================== */}
 
           <div
             className="dropdown-wrapper"
@@ -251,18 +302,11 @@ export default function HomeHeader({ internal = false }) {
               }
             >
               Connect
-              <FiChevronDown
-                className={
-                  activeDropdown === "connect"
-                    ? "dropdown-arrow-open"
-                    : ""
-                }
-              />
+              <FiChevronDown />
             </button>
 
             {activeDropdown === "connect" && (
               <div className="connect-menu">
-
                 <Link href="/contact">
                   Contact Us
                 </Link>
@@ -270,15 +314,14 @@ export default function HomeHeader({ internal = false }) {
                 <Link href="/careers">
                   Careers
                 </Link>
-
               </div>
             )}
-
           </div>
-
         </nav>
 
-        {/* SEARCH */}
+        {/* =================================================
+            DESKTOP SEARCH
+        ================================================= */}
 
         <button
           type="button"
@@ -288,67 +331,73 @@ export default function HomeHeader({ internal = false }) {
           <FiSearch size={20} />
         </button>
 
-        {/* ==========================================
-            MOBILE MENU BUTTON
-        ========================================== */}
+        {/* =================================================
+            MOBILE HAMBURGER
+        ================================================= */}
 
         <button
           type="button"
           className="mobile-menu-button"
-          onClick={() =>
-            setMobileMenuOpen((prev) => !prev)
-          }
-          aria-label={
-            mobileMenuOpen
-              ? "Close menu"
-              : "Open menu"
-          }
+          onClick={openMobileMenu}
+          aria-label="Open menu"
           aria-expanded={mobileMenuOpen}
         >
-          {mobileMenuOpen ? (
-            <FiX size={25} />
-          ) : (
-            <FiMenu size={25} />
-          )}
+          <FiMenu size={26} />
         </button>
       </header>
 
-      {/* ==========================================
+      {/* ===================================================
           MOBILE NAVIGATION
-      ========================================== */}
+      =================================================== */}
 
       <div
-        className={`mobile-navigation ${
-          mobileMenuOpen ? "mobile-navigation-open" : ""
-        }`}
+        className={`mobile-navigation ${mobileMenuOpen
+            ? "mobile-navigation-open"
+            : ""
+          }`}
       >
+        {/* =================================================
+            MOBILE CLOSE BUTTON
+        ================================================= */}
+
+        <button
+          type="button"
+          className="mobile-close-button"
+          onClick={closeMobileMenu}
+          aria-label="Close menu"
+        >
+          <FiX size={32} />
+        </button>
 
         <div className="mobile-navigation-inner">
 
-          {/* HOME */}
+          {/* ===============================
+              HOME
+          =============================== */}
 
           <Link
             href="/"
-            onClick={closeMobileMenu}
+            onClick={handleMobileLinkClick}
           >
             Home
           </Link>
 
-          {/* IDENTITY */}
+          {/* ===============================
+              IDENTITY
+          =============================== */}
 
           <Link
             href="/identity"
-            onClick={closeMobileMenu}
+            onClick={handleMobileLinkClick}
           >
             Identity
           </Link>
 
-          {/* ========================================
+          {/* ===============================
               EXPERTISE
-          ======================================== */}
+          =============================== */}
 
           <div className="mobile-menu-section">
-
             <button
               type="button"
               className="mobile-menu-parent"
@@ -359,7 +408,7 @@ export default function HomeHeader({ internal = false }) {
               <FiChevronDown
                 className={
                   mobileExpertiseOpen
-                    ? "mobile-arrow-open"
+                    ? "mobile-parent-open"
                     : ""
                 }
               />
@@ -368,79 +417,81 @@ export default function HomeHeader({ internal = false }) {
             {mobileExpertiseOpen && (
               <div className="mobile-submenu">
 
-                {disciplines.map((discipline) => {
-                  const isOpen =
-                    mobileDiscipline === discipline;
+                {disciplines.map((discipline) => (
+                  <div
+                    className="mobile-discipline"
+                    key={discipline}
+                  >
 
-                  return (
-                    <div
-                      key={discipline}
-                      className="mobile-discipline"
+                    {/* =========================
+                        DISCIPLINE BUTTON
+                    ========================= */}
+
+                    <button
+                      type="button"
+                      className="mobile-discipline-button"
+                      onClick={() =>
+                        toggleMobileDiscipline(
+                          discipline
+                        )
+                      }
                     >
+                      <span>{discipline}</span>
 
-                      <button
-                        type="button"
-                        className="mobile-discipline-button"
-                        onClick={() =>
-                          setMobileDiscipline(
-                            isOpen
-                              ? null
-                              : discipline
-                          )
+                      <FiChevronDown
+                        className={
+                          mobileDiscipline === discipline
+                            ? "mobile-discipline-open"
+                            : ""
                         }
-                      >
-                        <span>{discipline}</span>
+                      />
+                    </button>
 
-                        <FiChevronDown
-                          className={
-                            isOpen
-                              ? "mobile-arrow-open"
-                              : ""
-                          }
-                        />
-                      </button>
+                    {/* =========================
+                        CATEGORY LIST
+                    ========================= */}
 
-                      {isOpen && (
-                        <div className="mobile-category-list">
+                    {mobileDiscipline === discipline && (
+                      <div className="mobile-category-list">
 
-                          {(menu[discipline] || []).map(
-                            (item) => (
-                              <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={
-                                  closeMobileMenu
-                                }
-                              >
-                                {item.title}
-                              </Link>
-                            )
-                          )}
+                        {(menu[discipline] || []).map(
+                          (item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              onClick={
+                                handleMobileLinkClick
+                              }
+                            >
+                              {item.title}
+                            </Link>
+                          )
+                        )}
 
-                        </div>
-                      )}
+                      </div>
+                    )}
 
-                    </div>
-                  );
-                })}
+                  </div>
+                ))}
 
               </div>
             )}
-
           </div>
 
-          {/* STRENGTH */}
+          {/* ===============================
+              STRENGTH
+          =============================== */}
 
           <Link
             href="/strength"
-            onClick={closeMobileMenu}
+            onClick={handleMobileLinkClick}
           >
             Strength
           </Link>
 
-          {/* ========================================
+          {/* ===============================
               CONNECT
-          ======================================== */}
+          =============================== */}
 
           <div className="mobile-menu-section">
 
@@ -454,25 +505,25 @@ export default function HomeHeader({ internal = false }) {
               <FiChevronDown
                 className={
                   mobileConnectOpen
-                    ? "mobile-arrow-open"
+                    ? "mobile-parent-open"
                     : ""
                 }
               />
             </button>
 
             {mobileConnectOpen && (
-              <div className="mobile-submenu connect-mobile-submenu">
+              <div className="connect-mobile-submenu">
 
                 <Link
                   href="/contact"
-                  onClick={closeMobileMenu}
+                  onClick={handleMobileLinkClick}
                 >
                   Contact Us
                 </Link>
 
                 <Link
                   href="/careers"
-                  onClick={closeMobileMenu}
+                  onClick={handleMobileLinkClick}
                 >
                   Careers
                 </Link>
@@ -483,7 +534,6 @@ export default function HomeHeader({ internal = false }) {
           </div>
 
         </div>
-
       </div>
     </>
   );
