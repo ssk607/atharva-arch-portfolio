@@ -29,13 +29,115 @@ const projects = [
     description:
       "A contemporary residential development designed with clean geometry, efficient planning, natural light and elegant modern architecture.",
 
-    cover: "/images/MORESHWAR_BUILDCON.jpg",
+    cover: "/images/MORESHWAR_04.jpeg",
 
     images: [
       "/images/MORESHWAR_BUILDCON.jpg",
       "/images/MORESHWAR_02.jpg",
       "/images/MORESHWAR_03.jpg",
       "/images/MORESHWAR_04.jpeg"
+    ],
+  },
+  {
+    id: "om-construction-walvekar",
+
+    title: "Om Construction",
+
+    discipline: disciplines.architecture,
+
+    category: categories.residential,
+
+    client: "Om Construction",
+
+    location: "Pune, Maharashtra",
+
+    area: "18,500 sq.ft.",
+
+    year: "2024",
+
+    status: "Built",
+
+    services: [
+      "Architectural Design"
+    ],
+
+    description:
+      "A contemporary residential development designed with clean geometry, efficient planning, natural light and elegant modern architecture.",
+
+    cover: "/images/OM CONSTRUCTIONS_walvekar nagar.jpg",
+
+    images: [
+      "/images/OM CONSTRUCTIONS_walvekar nagar.jpg"
+    ],
+  },
+  {
+    id: "chalukya-infra",
+
+    title: "Chalukya Infra",
+
+    discipline: disciplines.architecture,
+
+    category: categories.residential,
+
+    client: "Chalukya Infra",
+
+    location: "Pandharpur, Maharashtra",
+
+    area: "10,000 sq.ft.",
+
+    year: "2018",
+
+    status: "Built",
+
+    services: [
+      "Architectural Design",
+      "Interior Design",
+    ],
+
+    description:
+      "A contemporary residential development designed with clean geometry, efficient planning, natural light and elegant modern architecture.",
+
+    cover: "/images/Chalukya_Infra.jpeg",
+
+    images: [
+      "/images/Chalukya_Infra.jpeg",
+      "/images/chalukya_interior.jpeg"
+    ],
+  },
+
+  {
+    id: "om-construction-gurukrupa",
+
+    title: "Om Construction",
+
+    discipline: disciplines.architecture,
+
+    category: categories.residential,
+
+    client: "Om Construction",
+
+    location: "Pune, Maharashtra",
+
+    area: "18,500 sq.ft.",
+
+    year: "2026",
+
+    status: "Ongoing",
+
+    services: [
+      "Architectural Design"
+    ],
+
+    description:
+      "A contemporary residential development designed with clean geometry, efficient planning, natural light and elegant modern architecture.",
+
+    cover: "/images/Gurukrupa_left_view.jpg",
+
+    images: [
+      "/images/OM_CONST_SAHAKARNAGAR.jpeg",
+      "/images/SAHAKARNAGAR.jpeg",
+      "/images/Gurukrupa_left_view.jpg",
+      "/images/Gurukrupa_right_view.jpeg"
     ],
   },
 
@@ -103,6 +205,8 @@ const projects = [
     images: [
       "/images/OM_CONST_SAHAKARNAGAR.jpeg",
       "/images/SAHAKARNAGAR.jpeg",
+      "/images/Gurukrupa_left_view.jpg",
+      "/images/Gurukrupa_right_view.jpeg"
     ],
   },
 ];

@@ -539,7 +539,7 @@ NAVIGATION
     width: 0;
     height: 2px;
 
-    background: #364b05;
+    background: none;
 
     transition: width .3s ease;
 }
@@ -3611,286 +3611,6 @@ CATEGORY PAGE
 
 
 /* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 850px) {
-
-    /* Header */
-
-    .home-header {
-        height: 72px;
-
-        padding: 0 20px;
-
-        background: rgba(255, 255, 255, 0.96);
-
-        backdrop-filter: blur(14px);
-
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    }
-
-
-    /* Logo */
-
-    .home-header .logo {
-        color: #111;
-
-        font-size: 24px;
-
-        letter-spacing: 5px;
-
-        z-index: 1101;
-    }
-
-
-    /* Hide desktop navigation */
-
-    .home-header .main-nav {
-        display: none;
-    }
-
-
-    /* Hide search on mobile */
-
-    .home-header .search-button {
-        display: none;
-    }
-
-
-    /* Show hamburger */
-
-    .mobile-menu-button {
-        display: flex;
-    }
-
-
-    /* =====================================================
-       MOBILE FULL SCREEN MENU
-    ===================================================== */
-
-    .mobile-navigation {
-        position: fixed;
-
-        top: 72px;
-        left: 0;
-
-        width: 100%;
-        height: calc(100vh - 72px);
-
-        background: #f7f5f2;
-
-        z-index: 1099;
-
-        overflow-y: auto;
-
-        opacity: 0;
-        visibility: hidden;
-
-        transform: translateY(-10px);
-
-        transition:
-            opacity .25s ease,
-            transform .25s ease,
-            visibility .25s ease;
-    }
-
-
-    .mobile-navigation-open {
-        display: block;
-
-        opacity: 1;
-        visibility: visible;
-
-        transform: translateY(0);
-    }
-
-
-    .mobile-navigation-inner {
-        width: 100%;
-
-        padding: 25px 24px 50px;
-    }
-
-
-    /* Main mobile links */
-
-    .mobile-navigation-inner > a,
-    .mobile-menu-parent {
-        width: 100%;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 20px 0;
-
-        border: none;
-        border-bottom: 1px solid #ddd;
-
-        background: transparent;
-
-        color: #111;
-
-        text-decoration: none;
-
-        font-family: inherit;
-
-        font-size: 25px;
-
-        font-weight: 500;
-
-        text-align: left;
-
-        cursor: pointer;
-    }
-
-
-    /* Section */
-
-    .mobile-menu-section {
-        width: 100%;
-    }
-
-
-    /* Expertise / Connect */
-
-    .mobile-menu-parent svg {
-        width: 21px;
-        height: 21px;
-
-        transition: transform .25s ease;
-    }
-
-
-    /* =====================================================
-       EXPERTISE SUBMENU
-    ===================================================== */
-
-    .mobile-submenu {
-        padding: 8px 0 12px 12px;
-    }
-
-
-    .mobile-discipline {
-        border-bottom: 1px solid #e2e2e2;
-    }
-
-
-    .mobile-discipline-button {
-        width: 100%;
-
-        display: flex;
-
-        align-items: center;
-        justify-content: space-between;
-
-        padding: 17px 8px;
-
-        border: none;
-
-        background: transparent;
-
-        color: #364b05;
-
-        font-family: inherit;
-
-        font-size: 16px;
-
-        font-weight: 600;
-
-        letter-spacing: 1px;
-
-        text-transform: uppercase;
-
-        text-align: left;
-
-        cursor: pointer;
-    }
-
-
-    .mobile-discipline-button svg {
-        width: 18px;
-        height: 18px;
-
-        transition: transform .25s ease;
-    }
-
-
-    /* Categories */
-
-    .mobile-category-list {
-        display: flex;
-
-        flex-direction: column;
-
-        padding: 0 0 12px 12px;
-    }
-
-
-    .mobile-category-list a {
-        display: block;
-
-        padding: 12px 10px;
-
-        color: #444;
-
-        font-size: 17px;
-
-        text-decoration: none;
-
-        border-left: 1px solid #d6d6d6;
-
-        transition: .25s ease;
-    }
-
-
-    .mobile-category-list a:hover,
-    .mobile-category-list a:active {
-        color: #364b05;
-
-        padding-left: 16px;
-    }
-
-
-    /* =====================================================
-       CONNECT MOBILE SUBMENU
-    ===================================================== */
-
-    .connect-mobile-submenu {
-        display: flex;
-
-        flex-direction: column;
-
-        padding: 0 0 12px 12px;
-    }
-
-
-    .connect-mobile-submenu a {
-        display: block;
-
-        padding: 16px 10px;
-
-        border-bottom: 1px solid #e2e2e2;
-
-        color: #444;
-
-        font-size: 18px;
-
-        text-decoration: none;
-    }
-
-
-    .connect-mobile-submenu a:hover,
-    .connect-mobile-submenu a:active {
-        color: #364b05;
-    }
-
-}
-
-
-/* =========================================================
    SMALL PHONES
 ========================================================= */
 
@@ -3913,7 +3633,7 @@ CATEGORY PAGE
     }
 
 
-    .mobile-navigation-inner > a,
+    .mobile-navigation-inner>a,
     .mobile-menu-parent {
         font-size: 23px;
     }
@@ -4068,12 +3788,80 @@ CATEGORY PAGE
 }
 
 
+/* =========================================================
+   MOBILE HEADER + MOBILE MENU
+   ========================================================= */
+
 @media (max-width: 850px) {
 
+    /* -------------------------
+     HEADER
+  ------------------------- */
+
     .home-header {
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 72px;
+
+        padding: 0 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        background: transparent;
+
+        box-shadow: none;
+        backdrop-filter: none;
+
         z-index: 1100;
     }
+
+
+    /* -------------------------
+     LOGO
+  ------------------------- */
+
+    /* .home-header .logo {
+        color: #111;
+        font-size: 24px;
+        letter-spacing: 5px;
+        z-index: 1101;
+    } */
+
+    .home-header .logo {
+        color: #fff;
+
+        font-size: 24px;
+        letter-spacing: 5px;
+        z-index: 1101;
+    }
+
+
+    /* -------------------------
+     DESKTOP NAVIGATION
+  ------------------------- */
+
+    .home-header .main-nav {
+        display: none !important;
+    }
+
+
+    /* -------------------------
+     SEARCH
+  ------------------------- */
+
+    .home-header .search-button {
+        display: none !important;
+    }
+
+
+    /* -------------------------
+     HAMBURGER BUTTON
+  ------------------------- */
 
     .home-header .mobile-menu-button {
         display: flex !important;
@@ -4090,46 +3878,260 @@ CATEGORY PAGE
         padding: 0;
         margin: 0;
 
-        border: none !important;
-        outline: none !important;
+        border: none;
+        outline: none;
 
-        background: transparent !important;
-
-        color: #111 !important;
+        background: transparent;
+        color: #fff;
 
         cursor: pointer;
-
-        pointer-events: auto;
     }
 
-    .home-header .main-nav {
-        display: none !important;
-    }
 
-    .home-header .search-button {
-        display: none !important;
-    }
+    /* =====================================================
+     MOBILE FULL SCREEN MENU
+     ===================================================== */
 
     .mobile-navigation {
-        position: fixed !important;
+        position: fixed;
 
-        top: 72px !important;
-        left: 0 !important;
+        top: 72px;
+        left: 0;
 
-        width: 100% !important;
-        height: calc(100vh - 72px) !important;
+        width: 100%;
+        height: calc(100vh - 72px);
 
-        z-index: 1090 !important;
+        z-index: 1090;
 
-        background: #f7f5f2 !important;
+        background: transparent;
+
+        overflow-y: auto;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.25s ease,
+            transform 0.25s ease,
+            visibility 0.25s ease;
     }
+
+
+    /* OPEN MENU */
 
     .mobile-navigation-open {
-        display: block !important;
-
-        visibility: visible !important;
-        opacity: 1 !important;
-
-        transform: translateY(0) !important;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
+
+
+    /* -------------------------
+     MENU CONTENT
+  ------------------------- */
+
+    .mobile-navigation-inner {
+        width: 100%;
+        padding: 25px 24px 50px;
+    }
+
+
+    /* =====================================================
+     MAIN MOBILE LINKS
+     ===================================================== */
+
+    .mobile-navigation-inner>a,
+    .mobile-menu-parent {
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 20px 0;
+
+        border: none;
+        border-bottom: 1px solid #ddd;
+
+        background: transparent;
+
+        color: #111;
+
+        text-decoration: none;
+
+        font-family: inherit;
+        font-size: 25px;
+        font-weight: 500;
+
+        text-align: left;
+
+        cursor: pointer;
+    }
+
+
+    /* -------------------------
+     MENU SECTIONS
+  ------------------------- */
+
+    .mobile-menu-section {
+        width: 100%;
+    }
+
+
+    /* -------------------------
+     DROPDOWN ARROWS
+  ------------------------- */
+
+    .mobile-menu-parent svg {
+        width: 21px;
+        height: 21px;
+
+        transition: transform 0.25s ease;
+    }
+
+
+    /* =====================================================
+     EXPERTISE SUBMENU
+     ===================================================== */
+
+    .mobile-submenu {
+        padding: 8px 0 12px 12px;
+    }
+
+
+    .mobile-discipline {
+        border-bottom: 1px solid #e2e2e2;
+    }
+
+
+    .mobile-discipline-button {
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 17px 8px;
+
+        border: none;
+
+        background: transparent;
+
+        color: #364b05;
+
+        font-family: inherit;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        letter-spacing: 1px;
+
+        text-transform: uppercase;
+
+        text-align: left;
+
+        cursor: pointer;
+    }
+
+
+    .mobile-discipline-button svg {
+        width: 18px;
+        height: 18px;
+
+        transition: transform 0.25s ease;
+    }
+
+
+    /* -------------------------
+     EXPERTISE CATEGORIES
+  ------------------------- */
+
+    .mobile-category-list {
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 0 12px 12px;
+    }
+
+
+    .mobile-category-list a {
+
+        display: block;
+
+        padding: 12px 10px;
+
+        color: #444;
+
+        font-size: 17px;
+
+        text-decoration: none;
+
+        border-left: 1px solid #d6d6d6;
+
+        transition:
+            color 0.25s ease,
+            padding-left 0.25s ease;
+    }
+
+
+    .mobile-category-list a:hover,
+    .mobile-category-list a:active {
+
+        color: #364b05;
+
+        padding-left: 16px;
+    }
+
+
+    /* =====================================================
+     CONNECT SUBMENU
+     ===================================================== */
+
+    .connect-mobile-submenu {
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 0 12px 12px;
+    }
+
+
+    .connect-mobile-submenu a {
+
+        display: block;
+
+        padding: 16px 10px;
+
+        border-bottom: 1px solid #e2e2e2;
+
+        color: #444;
+
+        font-size: 18px;
+
+        text-decoration: none;
+    }
+
+
+    .connect-mobile-submenu a:hover,
+    .connect-mobile-submenu a:active {
+
+        color: #364b05;
+    }
+
+}
+
+/* Remove decorative header lines */
+.home-header::before,
+.home-header::after {
+    display: none !important;
+}
+
+.home-header *::before,
+.home-header *::after {
+    /* Don't use this globally if other header elements need pseudo-elements */
 }

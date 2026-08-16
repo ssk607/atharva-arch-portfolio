@@ -21,13 +21,14 @@ export default function HomeSlide({ project, active }) {
 
       <div className="hero-content">
 
+        <h1 className="hero-title">
+          {project.title}
+        </h1>
+        
         <span className="hero-location">
           {project.location}
         </span>
 
-        <h1 className="hero-title">
-          {project.title}
-        </h1>
 
       </div>
 
