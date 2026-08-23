@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackToTop from "./BackToTop";
 import {
     FiInstagram,
     FiLinkedin,
@@ -36,7 +37,7 @@ export default function Footer() {
                     <div className="social-icons">
 
                         <a
-                            href="https://www.instagram.com/_ak_architects?igsh=MTkycHhhb216eW91Nw=="
+                            href="https://www.instagram.com/_studio_aka__?igsi=MTkycHhhb216eW91Nw=="
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
@@ -87,6 +88,8 @@ export default function Footer() {
                 </p>
 
             </div>
+
+            <BackToTop />
 
         </footer>
 

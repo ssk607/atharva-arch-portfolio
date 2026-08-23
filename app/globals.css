@@ -2903,8 +2903,6 @@ CATEGORY PAGE
 
     background: #F7F5F2;
 
-    padding-top: 160px;
-
 }
 
 .identity-hero {
@@ -3087,7 +3085,7 @@ CATEGORY PAGE
 
     .identity-page {
 
-        padding-top: 120px;
+        padding-top: 0px;
 
     }
 
@@ -3221,6 +3219,8 @@ CATEGORY PAGE
 
     padding-top: 160px;
 
+    padding-bottom: 30px;
+
 }
 
 .strength-hero {
@@ -3229,7 +3229,7 @@ CATEGORY PAGE
 
     margin: auto;
 
-    padding-bottom: 120px;
+    padding-bottom: 50px;
 
 }
 
@@ -3286,43 +3286,27 @@ CATEGORY PAGE
 }
 
 .strength-founder {
-
     width: min(700px, 90%);
-
-    margin: 90px auto;
-
+    margin: 30px auto;
     text-align: center;
-
 }
 
 .strength-founder img {
-
     width: 100%;
-
     max-width: 500px;
-
     border-radius: 6px;
-
 }
 
 .strength-founder h3 {
-
     margin-top: 30px;
-
     font-size: 40px;
-
     font-weight: 400;
-
 }
 
 .strength-founder p {
-
     color: #777;
-
     font-size: 20px;
-
     letter-spacing: 2px;
-
 }
 
 .strength-section {
@@ -3535,6 +3519,11 @@ CATEGORY PAGE
         overflow-x: hidden;
     }
 
+    .strength-page {
+        /* padding-top: 35px !important; */
+        /* padding-bottom: 5px !important; */
+    }
+
     .strength-section {
         display: block;
         width: 90%;
@@ -3546,7 +3535,7 @@ CATEGORY PAGE
     }
 
     .strength-right p {
-        font-size: 24px;
+        font-size: 22px;
         line-height: 1.6;
     }
 
@@ -3972,7 +3961,7 @@ CATEGORY PAGE
 .home-header .logo {
     display: block;
 
-    color: #111;
+    color: #fff;
 
     font-family: Georgia, "Times New Roman", serif;
 
@@ -4012,7 +4001,7 @@ CATEGORY PAGE
 
     gap: 5px;
 
-    color: #111;
+    color: #ffffff;
 
     font-family: inherit;
 
@@ -4034,159 +4023,133 @@ CATEGORY PAGE
 }
 
 
-/* =========================================================
-   DROPDOWN WRAPPER
-========================================================= */
-
 .dropdown-wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 1px;
+}
+
+.expertise-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
 }
 
 
-/* =========================================================
-   DESKTOP EXPERTISE MEGA MENU
-========================================================= */
+/* =========================
+   EXPERTISE MEGA MENU
+========================= */
 
 .mega-menu {
     position: absolute;
 
-    top: calc(100% + 22px);
-
+    top: calc(100% - 1px);
     left: 50%;
 
     transform: translateX(-50%);
 
     width: 520px;
 
-    min-height: 280px;
-
     display: grid;
-
     grid-template-columns: 190px 1fr;
 
     background: #fff;
 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 1px solid #eee;
 
-    z-index: 2000;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+    z-index: 5000;
 }
 
-
-/* Left */
-
 .mega-left {
-    display: flex;
-
-    flex-direction: column;
-
     background: #f7f7f7;
 }
 
-
 .mega-item {
-    width: 100%;
+    min-height: 80px;
 
-    padding: 25px 25px;
+    padding: 25px;
 
-    border: none;
-
-    background: transparent;
-
-    color: #111;
-
-    font-family: Georgia, "Times New Roman", serif;
-
-    font-size: 13px;
-
-    letter-spacing: 1.5px;
-
-    text-align: left;
-
-    text-transform: uppercase;
+    display: flex;
+    align-items: center;
 
     cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
 }
 
-
-.mega-item:hover,
 .mega-item.active {
     background: #fff;
 }
 
-
-/* Right */
-
 .mega-right {
-    display: flex;
+    padding: 10px 0;
 
+    display: flex;
     flex-direction: column;
 
-    padding: 20px 30px;
+    background: #fff;
 }
-
 
 .mega-right a {
     display: block;
 
-    padding: 13px 0;
+    padding: 14px 30px;
 
     color: #111;
 
-    font-family: Georgia, "Times New Roman", serif;
+    text-decoration: none;
 
     font-size: 14px;
-
-    text-decoration: none;
 }
-
 
 .mega-right a:hover {
-    opacity: 0.6;
+    background: #f7f7f7;
 }
 
 
-/* =========================================================
-   CONNECT DESKTOP MENU
-========================================================= */
+/* =========================
+   CONNECT MENU
+========================= */
 
 .connect-menu {
     position: absolute;
 
-    top: calc(100% + 22px);
-
-    left: 50%;
-
-    transform: translateX(-50%);
+    top: calc(100% - 1px);
+    right: 0;
 
     width: 180px;
 
-    display: flex;
-
-    flex-direction: column;
-
-    padding: 12px 0;
+    padding: 10px 0;
 
     background: #fff;
 
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    border: 1px solid #eee;
 
-    z-index: 2000;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+
+    z-index: 5000;
 }
 
-
 .connect-menu a {
-    padding: 15px 22px;
+    display: block;
+
+    padding: 14px 20px;
 
     color: #111;
 
-    font-size: 14px;
-
     text-decoration: none;
+
+    font-size: 14px;
 }
 
-
 .connect-menu a:hover {
-    background: #f5f5f5;
+    background: #f7f7f7;
 }
 
 /* =========================================================
@@ -4850,4 +4813,222 @@ CATEGORY PAGE
     line-height: 1.4;
 
     color: #777;
+}
+
+/* =========================================
+   BACK TO TOP BUTTON
+   ========================================= */
+
+/* =====================================================
+   SCROLL TO TOP
+===================================================== */
+
+.scroll-to-top {
+    position: fixed;
+
+    right: 24px;
+    bottom: 24px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    /* Hidden initially */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* Visible after scrolling */
+
+.scroll-to-top-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateY(0);
+}
+
+
+/* Hover */
+
+.scroll-to-top:hover {
+    background: #364b05;
+}
+
+
+/* Mobile */
+
+@media (max-width: 850px) {
+
+    .scroll-to-top {
+        right: 18px;
+        bottom: 18px;
+
+        width: 44px;
+        height: 44px;
+
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .strength-page {
+        padding-bottom: 10px;
+    }
+
+    .strength-founder {
+        width: 90%;
+        margin: 15px auto;
+    }
+
+    .strength-founder h3 {
+        margin-top: 20px;
+        font-size: 28px;
+    }
+
+    .strength-founder p {
+        font-size: 16px;
+        letter-spacing: 1px;
+    }
+
+    .founder-quote {
+        max-width: 90%;
+        margin: 30px auto 0;
+    }
+
+    .quote-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .founder-quote blockquote {
+        font-size: 24px;
+        line-height: 1.4;
+    }
+
+    .founder-quote blockquote::before {
+        font-size: 50px;
+        left: -12px;
+        top: -12px;
+    }
+
+    .founder-quote blockquote::after {
+        font-size: 50px;
+        right: -5px;
+        bottom: -25px;
+    }
+
+    .strength-page {
+
+        padding-top: 17%;
+        padding-bottom: 0%;
+
+    }
+
+    .strength-hero {
+
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+    }
+
+    .strength-closing {
+        width: 90%;
+        margin: 40px auto 0;
+    }
+
+    .strength-closing h2 {
+        font-size: 30px;
+        line-height: 1.3;
+    }
+
+    .strength-closing p {
+        margin-top: 20px;
+        padding-bottom: 30px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+    .career-hero {
+        padding-top: 25%;
+        padding-bottom: 0%;
+    }
+
+    .career-content {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .career-why .section-title h2 {
+        font-weight: 100 !important;
+        font-size: xxx-large !important;
+    }
+
+    .career-email {
+        padding-top: 0px;
+    }
+
+    .career-email h2 {
+        font-size: xx-large !important;
+    }
+
+    .contact-hero {
+        padding-top: 20% !important;
+        padding-bottom: 5% !important;
+    }
+
+    .contact-label {
+        font-size: 45px !important;
+    }
+
+    .contact-hero .contact-hero-content{
+        padding-bottom: 5% !important;
+    }
+
+    .contact-section {
+        padding-top: 10% !important;
+        padding-bottom: 0% !important;
+    }
+
+    .contact-map {
+        padding-top: 5% !important;
+        padding-bottom: 5% !important;
+    }
+
+    .contact-faq {
+        padding-top: 5% !important;
+        padding-bottom: 5% !important;
+    }
+
+    .contact-faq .section-title{
+        padding-top: 0% !important;
+        padding-left: 10% !important;
+    }
+
 }
