@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import {
   FiChevronDown,
   FiSearch,
@@ -19,6 +19,8 @@ export default function HomeHeader({ internal = false }) {
   const [scrolled, setScrolled] = useState(false);
 
   const [activeDropdown, setActiveDropdown] = useState(null);
+  
+  const closeTimer = useRef(null);
 
   /* =====================================================
      MOBILE MENU
@@ -123,11 +125,16 @@ export default function HomeHeader({ internal = false }) {
   ===================================================== */
 
   const openDropdown = (type) => {
+    clearTimeout(closeTimer.current);
     setActiveDropdown(type);
   };
 
   const closeDropdown = () => {
-    setActiveDropdown(null);
+    clearTimeout(closeTimer.current);
+
+    closeTimer.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 700);
   };
 
   /* =====================================================
@@ -230,47 +237,33 @@ export default function HomeHeader({ internal = false }) {
             onMouseEnter={() => openDropdown("expertise")}
             onMouseLeave={closeDropdown}
           >
-            <button
-              type="button"
-              className="expertise-link"
-              onClick={() =>
-                setActiveDropdown(
-                  activeDropdown === "expertise"
-                    ? null
-                    : "expertise"
-                )
-              }
-            >
+            <span className="expertise-link">
               Expertise
               <FiChevronDown />
-            </button>
+            </span>
 
             {activeDropdown === "expertise" && (
-              <div className="mega-menu">
+              <div
+                className="mega-menu"
+                onMouseEnter={() => openDropdown("expertise")}
+                onMouseLeave={closeDropdown}
+              >
                 <div className="mega-left">
                   {disciplines.map((discipline) => (
-                    <button
-                      type="button"
+                    <div
                       key={discipline}
-                      className={`mega-item ${activeMenu === discipline
-                          ? "active"
-                          : ""
+                      className={`mega-item ${activeMenu === discipline ? "active" : ""
                         }`}
-                      onMouseEnter={() =>
-                        setActiveMenu(discipline)
-                      }
+                      onMouseEnter={() => setActiveMenu(discipline)}
                     >
                       {discipline}
-                    </button>
+                    </div>
                   ))}
                 </div>
 
                 <div className="mega-right">
                   {(menu[activeMenu] || []).map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                    >
+                    <Link key={item.href} href={item.href}>
                       {item.title}
                     </Link>
                   ))}
@@ -352,8 +345,8 @@ export default function HomeHeader({ internal = false }) {
 
       <div
         className={`mobile-navigation ${mobileMenuOpen
-            ? "mobile-navigation-open"
-            : ""
+          ? "mobile-navigation-open"
+          : ""
           }`}
       >
         {/* =================================================
