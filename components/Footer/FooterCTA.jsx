@@ -23,7 +23,7 @@ export default function FooterCTA() {
                 </p>
 
                 <Link
-                    href="/connect/contact-us"
+                    href="/contact"
                     className="footer-button"
                 >
                     Get In Touch →

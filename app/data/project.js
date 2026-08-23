@@ -144,7 +144,7 @@ const projects = [
   {
     id: "gazebo",
 
-    title: "Shirine Garden",
+    title: "Chalukya Infra",
 
     discipline: disciplines.architecture,
 

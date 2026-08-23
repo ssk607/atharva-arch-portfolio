@@ -3730,7 +3730,7 @@ CATEGORY PAGE
 }
 
 .home-header:not(.header-scrolled) .expertise-link {
-    color: #fff;
+    color: #0e0d0d;
 }
 
 .header-scrolled .expertise-link {
@@ -3961,7 +3961,7 @@ CATEGORY PAGE
 .home-header .logo {
     display: block;
 
-    color: #fff;
+    color: #070000;
 
     font-family: Georgia, "Times New Roman", serif;
 
@@ -4001,11 +4001,11 @@ CATEGORY PAGE
 
     gap: 5px;
 
-    color: #ffffff;
+    color: #0a0a0a;
 
     font-family: inherit;
 
-    font-size: 15px;
+    font-size: 20px;
 
     text-decoration: none;
 
@@ -4310,7 +4310,7 @@ CATEGORY PAGE
   ======================================================= */
 
     .home-header .logo {
-        color: #fff;
+        color: #080000;
 
         font-size: 21px;
 
